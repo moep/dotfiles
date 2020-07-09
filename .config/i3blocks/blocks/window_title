@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Prints the active window title
+
+function read_window_title() {  
+  local id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
+  local name=$(xprop -id "${id}" | awk '/_NET_WM_NAME/{$1=$2=""; print}' | cut -d '"' -f2)
+  printf "%s%s%s\n" "<span font=\"${font}\">" "  " "${name} </span>"
+}
+
+read_window_title
+

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ip=$(curl -s "https://api.ipify.org/")
+echo "<span font=\"${font}\"> ${ip} </span>"

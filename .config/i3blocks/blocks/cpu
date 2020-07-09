@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+function get_cpu_percentage() {
+  echo -n $[100 - $(vmstat 1 2 | tail -1 | awk '{print $15}')]
+}
+
+function get_core_temp() {
+  local temp=$(sensors | grep '^Package id 0:' | cut -d ' ' -f 5 | sed 's/°C//g; s/+//g; s/\.[0-9]//g')
+  
+  if [[ $temp -le 40 ]]; then
+    echo -n " "
+  elif [[ $temp -le 50 ]]; then
+    echo -n " "
+  elif [[ $temp -le 60 ]]; then
+    echo -n " "
+  elif [[ $temp -le 80 ]]; then
+    echo -n " "
+  else
+    echo -n " "
+  fi
+
+  echo -n "${temp}°C"
+}
+
+function print_all() {
+  local percentage=$(get_cpu_percentage)
+
+  echo -n "<span font=\"${font}\">"
+  echo -n '  '
+  if [[ $percentage -ge 90 ]]; then
+    echo -n '<span color="red">'"${percentage}%</span> "
+  else
+    echo -n "${percentage}% "
+  fi
+
+  get_core_temp
+
+  echo -n "</span>"
+  echo
+
+}
+
+print_all

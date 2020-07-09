@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#date -u +"  %a %b %d @ %T "
+date +"<span font=\"${font}\">   %a %b %d  %T </span>"

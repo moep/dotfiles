@@ -1,0 +1,48 @@
+debug:
+  log_level: info
+# Font configuration (changes require restart)
+# Misc Termsynu 11
+# Gohu GohuFont 11
+font:
+  size: 8
+  normal:
+    #family: GohuFont Nerd Font Mono
+    family: Misc Termsynu
+    #style: Medium
+  bold:
+    #family: Gohu GohuFont
+    family: Misc Termsynu
+    #family: GohuFont Nerd Font Mono
+  italic:
+    #family: Gohu GohuFont
+    family: Misc Termsynu
+    #family: GohuFont Nerd Font Mono
+
+# Colors (Monokai Pro)
+colors:
+  # Default colors
+  primary:
+    background: '#2D2A2E'
+    foreground: '#FCFCFA'
+
+  # Normal colors
+  normal:
+    black:   '#403E41'
+    red:     '#FF6188'
+    green:   '#A9DC76'
+    yellow:  '#FFD866'
+    blue:    '#1B6CA8'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'
+
+  # Bright colors
+  bright:
+    black:   '#727072'
+    red:     '#FF6188'
+    green:   '#A9DC76'
+    yellow:  '#FFD866'
+    blue:    '#1B6CA8'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'

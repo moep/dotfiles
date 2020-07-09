@@ -1,0 +1,41 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=false
+separator_block_width=0
+markup=pango
+font=Misc Termsynu 8
+
+[window_title]
+command=~/.config/i3blocks/blocks/window_title
+interval=1
+align=center
+color=#000000
+background=#82ccdd
+
+[cpu]
+command=~/.config/i3blocks/blocks/cpu
+interval=5
+align=center
+color=#000000
+background=#f7d794
+markup=pango
+
+[ip]
+command=~/.config/i3blocks/blocks/ip
+interval=60
+align=center
+color=#000000
+background=#cf6a87
+
+[time]
+command=~/.config/i3blocks/blocks/date
+interval=1
+color=#000000
+background=#596275
