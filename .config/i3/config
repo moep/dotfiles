@@ -16,6 +16,8 @@
 
 # Start compton
 exec --no-startup-id picom --config ~/.config/i3/picom.conf --experimental-backend 
+bindsym $mod+Shift+p exec --no-startup-id picom --config ~/.config/i3/picom.conf --experimental-backend 
+bindsym $mod+Shift+o exec killall picom
 
 # Start Dunst
 exec --no-startup-id dunst
@@ -245,10 +247,11 @@ bar {
 
   colors {
     #background $fg_color_inactive
-    background #00000099
+    #background #00000099
+    background #191917
     #                  border             bg                 text
-    inactive_workspace #00000099          #00000099          #ffffff
-    focused_workspace  #00000099          #00000099          $bg_color_active
+    inactive_workspace #191917            #191917            #ffffff
+    focused_workspace  #191917            #191917            $bg_color_active
     #inactive_workspace $fg_color_inactive $fg_color_inactive $bg_color
     #focused_workspace  $bg_color          $bg_color          $fg_color_inactive
   }

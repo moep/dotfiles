@@ -3,7 +3,7 @@
 	email = moep@users.noreply.github.com
 [core]
 	editor = nvim
-	pager = /home/moep/.local/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
+	pager = /home/moep/.local/bin/diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [color "diff-highlight"]

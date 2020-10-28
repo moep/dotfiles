@@ -1,6 +1,9 @@
 "  ▌▌▌▛▛▌▛▘▛▘
 "▗ ▚▘▌▌▌▌▌ ▙▖
 
+" use system's vim settings
+set rtp^=/usr/share/vim/vimfiles/
+
 " use vim settings instsetead of vim
 set nocompatible
 
@@ -90,15 +93,18 @@ autocmd FileType c set shiftwidth=2|set softtabstop=2|set cindent
 " == custom commands =============================================================================== 
 
 " Buftabline
-nnoremap <C-Left>  :bp<CR>
-nnoremap <C-Right> :bn<CR>
-nnoremap <C-Down>  :bd<CR>
+nnoremap <silent> <C-Left>  :bp<CR>
+nnoremap <silent> <C-Right> :bn<CR>
+nnoremap <silent> <C-Down>  :bd<CR>
 
 " Fzf
-nnoremap <C-P> :Files<CR>
+nnoremap <silent> <C-P> :Files<CR>
+nnoremap <silent> <C-F> :Rg<CR>
+nnoremap <silent> <Leader>f :BLines<CR>
+nnoremap <silent> <C-B> :Buffers<CR>
 
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
+"nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
 

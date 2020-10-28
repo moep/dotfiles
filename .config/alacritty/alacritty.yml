@@ -18,31 +18,101 @@ font:
     family: Misc Termsynu
     #family: GohuFont Nerd Font Mono
 
-# Colors (Monokai Pro)
-colors:
-  # Default colors
-  primary:
-    background: '#2D2A2E'
-    foreground: '#FCFCFA'
 
-  # Normal colors
-  normal:
-    black:   '#403E41'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#1B6CA8'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
 
-  # Bright colors
-  bright:
-    black:   '#727072'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#1B6CA8'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
+
+schemes:
+  monokai_pro: &monokai_pro
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#1B6CA8'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#1B6CA8'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+  vice: &vice
+    primary:
+      background: '#2D2A2E'
+      foreground: '#FCFCFA'
+    normal:
+      black: "#ff9cff"
+      red: "#796af5"
+      green: "#f0ee6e"
+      yellow: "#6fffff"
+      blue: "#00eaff"
+      magenta: "#00caff"
+      cyan: "#50B0FF"
+      white: "#f850ac"
+    bright:
+      black: "#ff9cff"
+      red: "#796af5"
+      green: "#f0ee6e"
+      yellow: "#6fffff"
+      blue: "#00eaff"
+      magenta: "#00caff"
+      cyan: "#50B0FF"
+      white: "#f850ac"
+
+  moep_bright: &moep_bright
+    primary:
+      background: '#FCFCFA'
+      foreground: '#2D2A2E'
+    normal:
+      black: "#ff9cff"
+      red: "#796af5"
+      green: "#f0ee6e"
+      yellow: "#6fffff"
+      blue: "#00eaff"
+      magenta: "#00caff"
+      cyan: "#50B0FF"
+      white: "#f850ac"
+    bright:
+      black: "#ff9cff"
+      red: "#796af5"
+      green: "#f0ee6e"
+      yellow: "#6fffff"
+      blue: "#00eaff"
+      magenta: "#00caff"
+      cyan: "#50B0FF"
+      white: "#f850ac"
+      
+  moep_bright: &faint
+    primary:
+      background: '#232731'
+      foreground: '#9faab8'
+    normal:
+      black: "#232731"
+      red: "#a65f69"
+      green: "#3b8563"
+      yellow: "#b39669"
+      blue: "#487799"
+      magenta: "#b9637e"
+      cyan: "#348396"
+      white: "#6f798c"
+    bright:
+      black: "#6f798c"
+      red: "#b86974"
+      green: "#469e76"
+      yellow: "#c7a775"
+      blue: "#5287ad"
+      magenta: "#cc6d8b"
+      cyan: "#3c97ad"
+      white: "#9faab8"
+colors: *faint
