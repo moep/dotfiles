@@ -101,7 +101,7 @@ nnoremap <silent> <C-Down>  :bd<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <C-F> :Rg<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
-nnoremap <silent> <C-B> :Buffers<CR>
+nnoremap <silent> <C-E> :Buffers<CR>
 
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
