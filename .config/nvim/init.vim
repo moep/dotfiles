@@ -42,7 +42,8 @@ set incsearch
 
 " syntax highlighting and line numbers
 syntax on
-set number
+set relativenumber
+"set number
 
 " better backspace handling
 set backspace=indent,eol,start
