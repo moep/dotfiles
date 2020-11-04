@@ -24,6 +24,8 @@
 !/.config/ranger/rc.conf 
 !/.config/rofi/
 !/.config/rofi/**
+!/.config/tmux/
+!/.config/tmux/**
 
 !/.gitconfig
 !.gitignore
