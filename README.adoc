@@ -1,0 +1,82 @@
+:source-highlighter: pygments
+
+== moep's .files
+=== Requirements
+* diff-so-fancy
+* fish
+* fzf (>= 0.23.0)
+* neovim
+
+==== For Desktop use:
+
+* i3
+* i3blocks
+* i3bar
+* dmenu
+* dunst (optional)
+//* picom 
+
+=== Manual Installation
+==== Dotfiles
+[source,bash]
+----
+mkdir -p ~/local/ports/dotfiles
+git clone https://github.com/moep/dotfiles ~/.local/ports/dotfiles
+cd ~/.local/ports/dotfiles
+
+# You can also use $XDG_CONFIG_HOME instead
+ln -s .config ~/.config
+
+ln -s .inputrc ~/.inputrc
+ln -s .lessfilter ~/.lessfilter
+----
+
+==== NVIM plugins
+[source,bash]
+----
+cd ~/.local/ports/dotfiles/.config/nvim/pack/vendor/start
+
+git clone --depth=1 https://github.com/junegunn/fzf.vim
+git clone --depth=1 https://github.com/itchyny/lightline.vim
+git clone --depth=1 https://github.com/ap/vim-buftabline
+git clone --depth=1 https://github.com/yuttie/comfortable-motion.vim
+git clone --depth=1 https://github.com/majutsushi/tagbar
+
+# Optional
+git clone --depth=1 https://github.com/jacoborus/tender.vim
+git clone --recursive --depth=1 https://github.com/davidhalter/jedi-vim ${plugin_dir}/jedi-vim
+----
+
+==== FZF
+WARNING: In case you install directly from junegunn/fzf, use options `--no-fish` or `--bin` to prevent conflicts with my keybindings.
+
+[source,bash]
+// TODO can be copied from vim plugin folder
+----
+cd ~/.local/bin
+
+# replace with actual OS if needed
+curl -L https://github.com/junegunn/fzf/releases/download/0.24.3/fzf-0.24.3-freebsd_amd64.tar.gz | tar -xzf -
+----
+
+==== diff-so-fancy
+[source,bash]
+----
+cd ~/.local/ports
+git clone https://github.com/so-fancy/diff-so-fancy
+ln -s ~/.local/ports/diff-so-fancy/diff-so-fancy ~/.local/bin/diff-so-fancy
+----
+
+==== dmenu
+[source,bash]
+----
+cd ~/.local/ports
+git clone https://github.com/aario/dmenu 
+cd dmenu
+make PREFIX=~/.local/bin install
+----
+
+For FreeBSD the CFLAGS need to be edited:
+
+* `CPPFLAGS += -I/usr/local/include`
+* `CPPFLAGS += $$(freetype-config --cflags)` 
