@@ -3,7 +3,8 @@ function __fzf_history
   set -l result (
     history -z | \
     eval (__fzf_cmd) \
-       --read0 --tiebreak=index $FZF_DEFAULT_OPTS
+       --read0 --tiebreak=index $FZF_DEFAULT_OPTS \
+       -q "(commandline -j)"
   )
 
   commandline -- $result

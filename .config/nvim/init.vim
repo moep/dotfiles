@@ -10,10 +10,15 @@ set nocompatible
 " enable mouse in all modes
 set mouse=a
 
+" color scheme
+" fogbell_lite sunbather
+colorscheme photon_moep
+
 " Status line
 set ruler
 set laststatus=2
-hi StatusLine ctermbg=white ctermfg=240
+set noshowmode
+"hi StatusLine ctermbg=white ctermfg=240
 set statusline=%f                           " file name
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
@@ -42,7 +47,7 @@ set incsearch
 
 " syntax highlighting and line numbers
 syntax on
-set relativenumber
+set number relativenumber
 "set number
 
 " better backspace handling
@@ -67,8 +72,7 @@ set nofoldenable
 
 " highlight current line
 set cursorline
-"hi CursorLine term=bold cterm=bold guibg=White
-hi CursorLine   cterm=NONE ctermbg=240 ctermfg=NONE
+"hi CursorLine   cterm=NONE ctermbg=240 ctermfg=NONE
 
 " show non-printable characters
 set list
@@ -92,6 +96,9 @@ let mapleader=","
 autocmd FileType c set shiftwidth=2|set softtabstop=2|set cindent
 
 " == custom commands =============================================================================== 
+" Prevent accidentially entering ex mode
+map q: <Nop>
+nnoremap Q <nop>
 
 " Buftabline
 nnoremap <silent> <C-Left>  :bp<CR>
@@ -104,8 +111,59 @@ nnoremap <silent> <C-F> :Rg<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <C-E> :Buffers<CR>
 
+" misc
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 "nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
 
+" == lightline ===================================================================================== 
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [[ 'mode', 'paste' ],
+      \            [ 'readonly', 'modified', 'gitbranch' ]]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'LightlineGitGutter'
+      \ },
+\ }
+
+let g:lightline.enable = {
+  \ 'statusline': 1,
+  \ 'tabline': 1
+\ }
+
+" == git gutter ==================================================================================== 
+function! LightlineGitGutter()
+  let [ l:added, l:modified, l:removed ] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', l:added, l:modified, l:removed)
+endfunction
+
+hi GitGutterAddLine ctermbg=NONE ctermfg=1 cterm=NONE
+hi GitGutterAddLine ctermbg=NONE ctermfg=1 cterm=NONE   
+hi GitGutterChangeLine       ctermbg=NONE ctermfg=1 cterm=NONE
+hi GitGutterDeleteLine       ctermbg=NONE ctermfg=1 cterm=NONE
+hi GitGutterChangeDeleteLine ctermbg=NONE ctermfg=1 cterm=NONE
+
+" disable keybinding
+" " disable keybindingss
+let g:gitgutter_map_keys = 0
+
+let g:gitgutter_sign_added = '▐'
+let g:gitgutter_sign_modified = '▐'
+let g:gitgutter_sign_removed = '▐'
+let g:gitgutter_sign_removed_first_line = '▐'
+let g:gitgutter_sign_removed_above_and_below = '▐'
+let g:gitgutter_sign_modified_removed = '▐'
+
+" colors
+" Colors
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=28
+highlight GitGutterChange ctermfg=214
+highlight GitGutterDelete ctermfg=160
+highlight GitGutterChangeDelete ctermfg=39
+
+" == jedi-vim ====================================================================================== 
