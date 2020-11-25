@@ -89,13 +89,20 @@ augroup ws
   autocmd FileType c,cpp,java,php,js,json,css,scss,sass,py,rb,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 augroup end
 
-" leader key: ,
-let mapleader=","
+" Auto-index help files
+command! -nargs=0 -bar Helptags
+    \  for p in glob('~/.config/nvim/pack/bundle/opt/*', 1, 1)
+    \|     exe 'packadd ' . fnamemodify(p, ':t')
+    \| endfor
+    \| helptags ALL
 
 " == c specific settings =========================================================================== 
 autocmd FileType c set shiftwidth=2|set softtabstop=2|set cindent
 
 " == custom commands =============================================================================== 
+" leader key: ,
+let mapleader=","
+
 " Prevent accidentially entering ex mode
 map q: <Nop>
 nnoremap Q <nop>
@@ -111,6 +118,8 @@ nnoremap <silent> <C-F> :Rg<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <C-E> :Buffers<CR>
 
+" Tagbar
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
 " misc
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>

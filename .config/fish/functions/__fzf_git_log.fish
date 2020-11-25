@@ -5,7 +5,7 @@ function __fzf_git_log -d "Call git log with fzf"
   set -l preview_cmd "$extract_hash | xargs git show --color=always | $FZF_GIT_PREVIEW_CMD" 
   
   set -l result (
-    git log --pretty="format:$FZF_GIT_LOG_FORMAT" --color=always --graph --tags \
+    git log --pretty="format:$FZF_GIT_LOG_FORMAT" --color=always --graph \
     | fzf $FZF_DEFAULT_OPTS --ansi --no-sort --reverse --no-multi \
         --height 100% \
         --preview="$preview_cmd"  \

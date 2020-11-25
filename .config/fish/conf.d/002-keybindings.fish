@@ -13,4 +13,5 @@ set -g FZF_KEYBIND_TOGGLE_PREVIEW "alt-space"
 bind \cr '__fzf_history'
 bind \cgl '__fzf_git_log'
 bind \cgt '__fzf_git_tags'
+bind \cgs '__fzf_git_status'
 
