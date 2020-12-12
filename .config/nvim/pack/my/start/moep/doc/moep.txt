@@ -1,0 +1,23 @@
+*moep.txt*  NVIM
+
+
+==============================================================================
+1. Key Bindings                                                  *moep-bindings*
+
+<Leader>f         Find string in current file. (Requires |FZF|)
+<Leader>F         Find string in all files in all open buffers. (Requires |FZF|)
+<Leader>t         Toggle TagBar. (Requires |TagBar|)
+<C-E>             Select open buffer. (Requires |FZF|)
+<C-P>             List files for opening in currend directory. (Requires |FZF|)
+
+<C-Left>          Goto previous open buffer.
+<C-Right>         Goto next open buffer.
+<C-Down>          Close (destroy) active buffer.
+
+==============================================================================
+2. Cheat Sheet                                                *moep-cheat-sheet*
+
+This section contains default commands which I often forget.
+
+zm        Fold all
+zr        Unfold all

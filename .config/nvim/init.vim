@@ -1,10 +1,17 @@
 "  ▌▌▌▛▛▌▛▘▛▘
 "▗ ▚▘▌▌▌▌▌ ▙▖
 
+" For more info type
+" :help moep
+
+echo "(V) (°,,,°) (V)"
+
+" == general settings ==============================================================================
+" {{{
 " use system's vim settings
 set rtp^=/usr/share/vim/vimfiles/
 
-" use vim settings instsetead of vim
+" use vim settings instead of vim
 set nocompatible
 
 " enable mouse in all modes
@@ -18,19 +25,11 @@ colorscheme photon_moep
 set ruler
 set laststatus=2
 set noshowmode
-"hi StatusLine ctermbg=white ctermfg=240
-set statusline=%f                           " file name
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%y      "filetype
-set statusline+=%h      "help file flag
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
 
 " Don't parse last lines for vim commands
 set modelines=0
 
-" hide buffers
+"hide buffers
 set hidden
 
 " less strict find and search
@@ -48,7 +47,6 @@ set incsearch
 " syntax highlighting and line numbers
 syntax on
 set number relativenumber
-"set number
 
 " better backspace handling
 set backspace=indent,eol,start
@@ -67,7 +65,7 @@ set autoindent
 " no line wrapping
 "set nowrap
 
-" no folding
+" no initial folding
 set nofoldenable
 
 " highlight current line
@@ -77,7 +75,7 @@ set cursorline
 " show non-printable characters
 set list
 set listchars=
-set listchars+=tab:𐄙\ 
+set listchars+=tab:→\
 set listchars+=trail:·
 set listchars+=extends:»
 set listchars+=precedes:«
@@ -85,38 +83,63 @@ set listchars+=nbsp:⣿
 
 " remove trailing whitespaces and ^M chars
 augroup ws
-  au!
+  autocmd!
   autocmd FileType c,cpp,java,php,js,json,css,scss,sass,py,rb,coffee,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 augroup end
 
-" Auto-index help files
+" auto-index help files
 command! -nargs=0 -bar Helptags
     \  for p in glob('~/.config/nvim/pack/bundle/opt/*', 1, 1)
     \|     exe 'packadd ' . fnamemodify(p, ':t')
     \| endfor
     \| helptags ALL
 
-" == c specific settings =========================================================================== 
-autocmd FileType c set shiftwidth=2|set softtabstop=2|set cindent
+" disable capslock when entering normal mode
+" TODO xdotool not avialable in FreeBSD?
+function TurnOffCaps()
+    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
+    if capsState == 'on'
+        silent! execute ':!xdotool key Caps_Lock'
+    endif
+endfunction
 
-" == custom commands =============================================================================== 
+augroup insert_leave
+    autocmd!
+    autocmd InsertLeave * call TurnOffCaps()
+augroup end
+" }}}
+
+" == custom commands ===============================================================================
+" {{{
 " leader key: ,
 let mapleader=","
 
+" no timeout for leader
+"set notimeout
+
+" replace esc with jj in insert mode
+inoremap <esc> <nop>
+inoremap jj <esc>
+
 " Prevent accidentially entering ex mode
-map q: <Nop>
 nnoremap Q <nop>
 
-" Buftabline
-nnoremap <silent> <C-Left>  :bp<CR>
+" Clear search highlightling with AltGr+/ (us-layout)
+nnoremap ¿ :nohlsearch!<cr>
+
+" Buffers in general
+nnoremap <silent> <leader>, :bn<CR>
+nnoremap <silent> <leader>< :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
+nnoremap <silent> <C-Left>  :bp<CR>
 nnoremap <silent> <C-Down>  :bd<CR>
 
 " Fzf
-nnoremap <silent> <C-P> :Files<CR>
-nnoremap <silent> <C-F> :Rg<CR>
+nnoremap <silent> <Leader>p :Files<CR>
+nnoremap <silent> <Leader>F :Rg<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
-nnoremap <silent> <C-E> :Buffers<CR>
+nnoremap <silent> <Leader>e :Buffers<CR>
+nnoremap <silent> <leader>. :Buffers<CR>
 
 " Tagbar
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
@@ -125,13 +148,15 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 "nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
+" }}}
 
-" == lightline ===================================================================================== 
+" == lightline =====================================================================================
+" {{{
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [[ 'mode', 'paste' ],
-      \            [ 'readonly', 'modified', 'gitbranch' ]]
+      \            [ 'readonly', 'relativepath', 'modified', 'gitbranch' ]]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'LightlineGitGutter'
@@ -143,14 +168,49 @@ let g:lightline.enable = {
   \ 'tabline': 1
 \ }
 
-" == git gutter ==================================================================================== 
+" shorter mode indicators
+let g:lightline.mode_map = {
+    \ 'n' : 'N',
+    \ 'i' : 'I',
+    \ 'R' : 'R',
+    \ 'v' : 'V',
+    \ 'V' : 'V-L',
+    \ "\<C-v>": 'V-L',
+    \ 'c' : ':',
+    \ 's' : 'S',
+    \ 'S' : 'S-L',
+    \ "\<C-s>": 'S-B',
+    \ 't': 'T',
+    \ }
+" }}}
+
+" == buftabline ====================================================================================
+" {{{
+" 0 - off, 1 - buffer no, 2 - ordinal no
+let g:buftabline_numbers=1
+let g:buftabline_indicators=1
+
+nmap <leader>1 <Plug>BufTabLine.Go(1)
+nmap <leader>2 <Plug>BufTabLine.Go(2)
+nmap <leader>3 <Plug>BufTabLine.Go(3)
+nmap <leader>4 <Plug>BufTabLine.Go(4)
+nmap <leader>5 <Plug>BufTabLine.Go(5)
+nmap <leader>6 <Plug>BufTabLine.Go(6)
+nmap <leader>7 <Plug>BufTabLine.Go(7)
+nmap <leader>8 <Plug>BufTabLine.Go(8)
+nmap <leader>9 <Plug>BufTabLine.Go(9)
+nmap <leader>0 <Plug>BufTabLine.Go(10)
+" }}}
+
+" == git gutter ====================================================================================
+" {{{
 function! LightlineGitGutter()
   let [ l:added, l:modified, l:removed ] = GitGutterGetHunkSummary()
   return printf('+%d ~%d -%d', l:added, l:modified, l:removed)
 endfunction
 
 hi GitGutterAddLine ctermbg=NONE ctermfg=1 cterm=NONE
-hi GitGutterAddLine ctermbg=NONE ctermfg=1 cterm=NONE   
+hi GitGutterAddLine ctermbg=NONE ctermfg=1 cterm=NONE
 hi GitGutterChangeLine       ctermbg=NONE ctermfg=1 cterm=NONE
 hi GitGutterDeleteLine       ctermbg=NONE ctermfg=1 cterm=NONE
 hi GitGutterChangeDeleteLine ctermbg=NONE ctermfg=1 cterm=NONE
@@ -174,5 +234,6 @@ highlight GitGutterAdd ctermfg=28
 highlight GitGutterChange ctermfg=214
 highlight GitGutterDelete ctermfg=160
 highlight GitGutterChangeDelete ctermfg=39
+" }}}
 
-" == jedi-vim ====================================================================================== 
+" == jedi-vim ======================================================================================
