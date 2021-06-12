@@ -96,16 +96,22 @@ command! -nargs=0 -bar Helptags
 
 " disable capslock when entering normal mode
 " TODO xdotool not avialable in FreeBSD?
-function TurnOffCaps()
-    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
-    if capsState == 'on'
-        silent! execute ':!xdotool key Caps_Lock'
-    endif
-endfunction
+"function TurnOffCaps()
+"    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
+"    if capsState == 'on'
+"        silent! execute ':!xdotool key Caps_Lock'
+"    endif
+"endfunction
 
-augroup insert_leave
+"augroup insert_leave
+"    autocmd!
+"    autocmd InsertLeave * call TurnOffCaps()
+"augroup end
+
+" c specific settings
+let &path.="src/include,/usr/local/include/,"
+augroup c_settings
     autocmd!
-    autocmd InsertLeave * call TurnOffCaps()
 augroup end
 " }}}
 
@@ -118,14 +124,18 @@ let mapleader=","
 "set notimeout
 
 " replace esc with jj in insert mode
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 inoremap jj <esc>
 
 " Prevent accidentially entering ex mode
 nnoremap Q <nop>
 
 " Clear search highlightling with AltGr+/ (us-layout)
-nnoremap ¿ :nohlsearch!<cr>
+nnoremap ¿ :nohlsearch<cr>
+
+" Should be project specific
+nnoremap <F1> make kernel
+nnoremap <F2> make run
 
 " Buffers in general
 nnoremap <silent> <leader>, :bn<CR>
@@ -149,6 +159,44 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 "nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
 " }}}
+
+" == coc ===========================================================================================
+" TODO put in augroup for supported files / projects
+
+" trigger completion via c-space
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" goto commands
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" rename
+nmap <leader>cr <Plug>(coc-rename)
+
+" format selection
+xmap <leader>cf <Plug>(coc-format-selected)
+nmap <leader>cf <Plug>(coc-format-selected)
+
+" quick fix for current line
+nmap <leader>cqf <Plug>(coc-fix-current)
+
+" execute codeaction
+nmap <leader>cca <Plug>(coc-codeaction)
+
+" CocList commands
+nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>c :<C-u>CocList commands<cr>
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>j :<C-u>CocNext <cr>
+nnoremap <silent> <space>p :<C-u>CocPrev <cr>
+nnoremap <silent> <space>p :<C-u>CocListResume <cr>
+
+" better enter behavior for coc-pairs
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " == lightline =====================================================================================
 " {{{
