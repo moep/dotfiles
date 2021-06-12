@@ -1,22 +1,24 @@
 debug:
   log_level: info
 # Font configuration (changes require restart)
-# Misc Termsynu 11
-# Gohu GohuFont 11
 font:
-  size: 8
+  size: 10
   normal:
-    #family: GohuFont Nerd Font Mono
-    family: Misc Termsynu
-    #style: Medium
+    #family: monospace
+    #family: UWTtyp0
+    #family: GohuFont
+    family: Terminus
+
   bold:
-    #family: Gohu GohuFont
-    family: Misc Termsynu
+    #family: GohuFont
+    #family: UWTtyp0
     #family: GohuFont Nerd Font Mono
+    family: Terminus
   italic:
-    #family: Gohu GohuFont
-    family: Misc Termsynu
+    #family: GohuFont
+    #family: UWTtyp0
     #family: GohuFont Nerd Font Mono
+    family: Terminus
 
 
 mouse_bindings:
@@ -92,8 +94,31 @@ schemes:
       magenta: "#00caff"
       cyan: "#50B0FF"
       white: "#f850ac"
+
+  moep_dark: &moep_dark
+    primary:
+      background: '#222222'
+      foreground: '#ffffff'
+    normal:
+      black: "#232628"
+      red: "#fb2f2f"
+      green: "#21d11f"
+      yellow: "#ffc750"
+      blue: "#81a4ff"
+      magenta: "#f92a72"
+      cyan: "#66d9ef"
+      white: "#cfcfcf"
+    bright:
+      black: "#232628"
+      red: "#fb2f2f"
+      green: "#b7e658"
+      yellow: "#e6db74"
+      blue: "#aae2f1"
+      magenta: "#f92a72"
+      cyan: "#66d9ef"
+      white: "#f8f8f8"
       
-  moep_bright: &faint
+  faint: &faint
     primary:
       background: '#232731'
       foreground: '#9faab8'
@@ -115,4 +140,4 @@ schemes:
       magenta: "#cc6d8b"
       cyan: "#3c97ad"
       white: "#9faab8"
-colors: *faint
+colors: *moep_dark

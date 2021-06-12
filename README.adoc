@@ -2,10 +2,11 @@
 
 == moep's .files
 === Requirements
-* diff-so-fancy
 * fish
 * fzf (>= 0.23.0)
 * neovim
+  * nodejs (for coc.vim)
+* delta
 
 ==== For Desktop use:
 
@@ -27,6 +28,7 @@ cd ~/.local/ports/dotfiles
 # You can also use $XDG_CONFIG_HOME instead
 ln -s .config ~/.config
 
+ln -s .gitconfig ~/.gitconfig
 ln -s .inputrc ~/.inputrc
 ln -s .lessfilter ~/.lessfilter
 ----
@@ -36,15 +38,15 @@ ln -s .lessfilter ~/.lessfilter
 ----
 cd ~/.local/ports/dotfiles/.config/nvim/pack/vendor/start
 
+git clone --depth=1 https://github.com/neoclide/coc.nvim
+git clone --depth=1 https://github.com/yuttie/comfortable-motion.vim
+git clone --depth=1 https://github.com/junegunn/fzf
 git clone --depth=1 https://github.com/junegunn/fzf.vim
 git clone --depth=1 https://github.com/itchyny/lightline.vim
-git clone --depth=1 https://github.com/ap/vim-buftabline
-git clone --depth=1 https://github.com/yuttie/comfortable-motion.vim
 git clone --depth=1 https://github.com/majutsushi/tagbar
+git clone --depth=1 https://github.com/ap/vim-buftabline
+git clone --depth=1 https://github.com/airblade/vim-gitgutter
 
-# Optional
-git clone --depth=1 https://github.com/jacoborus/tender.vim
-git clone --recursive --depth=1 https://github.com/davidhalter/jedi-vim ${plugin_dir}/jedi-vim
 ----
 
 ==== FZF
@@ -59,12 +61,14 @@ cd ~/.local/bin
 curl -L https://github.com/junegunn/fzf/releases/download/0.24.3/fzf-0.24.3-freebsd_amd64.tar.gz | tar -xzf -
 ----
 
-==== diff-so-fancy
+==== delta
 [source,bash]
 ----
 cd ~/.local/ports
-git clone https://github.com/so-fancy/diff-so-fancy
-ln -s ~/.local/ports/diff-so-fancy/diff-so-fancy ~/.local/bin/diff-so-fancy
+git clone https://github.com/dandavison/delta 
+cd delta
+make
+ln -s target/release/delta ~/.local/bin/delta
 ----
 
 ==== dmenu
