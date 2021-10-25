@@ -4,14 +4,14 @@
 " For more info type
 " :help moep
 
-echo "(V) (°,,,°) (V)"
+echohl Error | echo "(V) (°,,,°) (V)" | echohl None
 
 " == general settings ==============================================================================
 " {{{
 " use system's vim settings
 set rtp^=/usr/share/vim/vimfiles/
 
-" use vim settings instead of vim
+" use vim settings instead of vi
 set nocompatible
 
 " enable mouse in all modes
@@ -118,7 +118,7 @@ augroup end
 " == custom commands ===============================================================================
 " {{{
 " leader key: ,
-let mapleader=","
+let mapleader="\\"
 
 " no timeout for leader
 "set notimeout
@@ -138,7 +138,7 @@ nnoremap <F1> make kernel
 nnoremap <F2> make run
 
 " Buffers in general
-nnoremap <silent> <leader>, :bn<CR>
+nnoremap <silent> <leader>> :bn<CR>
 nnoremap <silent> <leader>< :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
 nnoremap <silent> <C-Left>  :bp<CR>
@@ -152,7 +152,7 @@ nnoremap <silent> <Leader>e :Buffers<CR>
 nnoremap <silent> <leader>. :Buffers<CR>
 
 " Tagbar
-nnoremap <silent> <Leader>t :TagbarToggle<CR>
+nnoremap <silent> <Leader>o :TagbarToggle<CR>
 " misc
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
@@ -186,7 +186,7 @@ nmap <leader>cqf <Plug>(coc-fix-current)
 nmap <leader>cca <Plug>(coc-codeaction)
 
 " CocList commands
-nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>c :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o :<C-u>CocList outline<cr>
@@ -284,4 +284,13 @@ highlight GitGutterDelete ctermfg=160
 highlight GitGutterChangeDelete ctermfg=39
 " }}}
 
-" == jedi-vim ======================================================================================
+" == nvim-tree =====================================================================================
+lua << EOF
+require'nvim-tree'.setup()
+require'nvim-web-devicons'.setup()
+vim.api.nvim_set_keymap('n', 'T', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+EOF
+
+" Workaround for fish causing a long freeze when calling NvimTreeToggle (or setup)
+set shell=/usr/local/bin/bash
+
