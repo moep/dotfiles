@@ -16,7 +16,7 @@ set -g symbol_downstream "⇣"
 set -gx EDITOR nvim
 
 # Make executable Python modules in user space visible
-set -Ua fish_user_paths ~/.local/bin
+set -a fish_user_paths ~/.local/bin
 
 # TODO Add check if term has capability (maybe only allow from X terminals?)
 #set -gx LS_COLORS (/usr/bin/ls_colors_generator)

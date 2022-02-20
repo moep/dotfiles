@@ -118,7 +118,7 @@ augroup end
 " == custom commands ===============================================================================
 " {{{
 " leader key: ,
-let mapleader="\\"
+let mapleader=","
 
 " no timeout for leader
 "set notimeout
@@ -157,46 +157,8 @@ nnoremap <silent> <Leader>o :TagbarToggle<CR>
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-"nnoremap <C-Up> :'<,'> !figlet -d ~/tmp/figlet-fonts/  -w 150 -f '3d' -- <CR>
+nnoremap <C-Up> :'<,'> !figlet -d ~/.local/ports/figlet-fonts/  -w 150 -f '3d' -- <CR>
 " }}}
-
-" == coc ===========================================================================================
-" TODO put in augroup for supported files / projects
-
-" trigger completion via c-space
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" goto commands
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" rename
-nmap <leader>cr <Plug>(coc-rename)
-
-" format selection
-xmap <leader>cf <Plug>(coc-format-selected)
-nmap <leader>cf <Plug>(coc-format-selected)
-
-" quick fix for current line
-nmap <leader>cqf <Plug>(coc-fix-current)
-
-" execute codeaction
-nmap <leader>cca <Plug>(coc-codeaction)
-
-" CocList commands
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>j :<C-u>CocNext <cr>
-nnoremap <silent> <space>p :<C-u>CocPrev <cr>
-nnoremap <silent> <space>p :<C-u>CocListResume <cr>
-
-" better enter behavior for coc-pairs
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " == lightline =====================================================================================
 " {{{
@@ -294,3 +256,21 @@ EOF
 " Workaround for fish causing a long freeze when calling NvimTreeToggle (or setup)
 set shell=/usr/local/bin/bash
 
+" == LSP ===========================================================================================
+" https://github.com/prabirshrestha/vim-lsp/blob/master/README.md#registering-servers 
+if executable('clangd12')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'clangd12',
+    \ 'cmd': {server_info->['clangd12', '--background-index', '--header-insertion=never']},
+    \ 'allowlist': ['c', 'cpp', 'objc'],
+    \ 'initialization_options': {},
+    \ })
+endif
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" https://github.com/neovim/nvim-lspconfig
+lua require('lsp_rust')

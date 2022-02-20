@@ -10,7 +10,7 @@
 separator=false
 separator_block_width=0
 markup=pango
-font=Misc Termsynu 8
+#font=Misc Termsynu 8
 
 [window_title]
 command=~/.config/i3blocks/blocks/window_title
@@ -19,13 +19,13 @@ align=center
 color=#000000
 background=#82ccdd
 
-[cpu]
-command=~/.config/i3blocks/blocks/cpu
-interval=5
-align=center
-color=#000000
-background=#f7d794
-markup=pango
+#[cpu]
+#command=~/.config/i3blocks/blocks/cpu
+#interval=5
+#align=center
+#color=#000000
+#background=#f7d794
+#markup=pango
 
 [ip]
 command=~/.config/i3blocks/blocks/ip

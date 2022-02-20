@@ -26,9 +26,9 @@ set -g __fish_git_prompt_char_stateseparator ''
 
 function fish_prompt
   if __is_git
-    echo -n -s (set_color brblack -b af87d7) (prompt_pwd) " " (fish_git_prompt "%s ")
+    echo -n -s (set_color black -b fbc334) (prompt_pwd) " " (fish_git_prompt "%s ")
   else
-    echo -n -s (set_color brblack -b af87d7) (prompt_pwd) " " (set_color normal) " " 
+    echo -n -s (set_color black -b fbc334) (prompt_pwd) " " (set_color normal) " " 
   end
 
   set_color normal
