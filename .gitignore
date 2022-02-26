@@ -20,6 +20,8 @@
 !/.config/jrnl/**
 !/.config/nvim/
 !/.config/nvim/init.vim 
+!/.config/nvim/lua/
+!/.config/nvim/lua/**
 !/.config/nvim/pack/
 !/.config/nvim/pack/my/
 !/.config/nvim/pack/my/**

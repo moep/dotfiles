@@ -5,11 +5,9 @@
 * fish
 * fzf (>= 0.23.0)
 * neovim
-  * nodejs (for coc.vim)
 * delta
 
 ==== For Desktop use:
-
 * i3
 * i3blocks
 * i3bar
@@ -38,15 +36,25 @@ ln -s .lessfilter ~/.lessfilter
 ----
 cd ~/.local/ports/dotfiles/.config/nvim/pack/vendor/start
 
-git clone --depth=1 https://github.com/neoclide/coc.nvim
-git clone --depth=1 https://github.com/yuttie/comfortable-motion.vim
 git clone --depth=1 https://github.com/junegunn/fzf
 git clone --depth=1 https://github.com/junegunn/fzf.vim
 git clone --depth=1 https://github.com/itchyny/lightline.vim
+git clone --depth=1 https://github.com/kyazdani42/nvim-tree.lua
+git clone --depth=1 https://github.com/kyazdani42/nvim-web-devicons
 git clone --depth=1 https://github.com/majutsushi/tagbar
 git clone --depth=1 https://github.com/ap/vim-buftabline
 git clone --depth=1 https://github.com/airblade/vim-gitgutter
 
+# for LSP support
+git clone --depth=1 https://github.com/hrsh7th/cmp-buffer
+git clone --depth=1 https://github.com/hrsh7th/cmp-cmdline
+git clone --depth=1 https://github.com/hrsh7th/cmp-nvim-lsp
+git clone --depth=1 https://github.com/hrsh7th/cmp-path
+git clone --depth=1 https://github.com/hrsh7th/nvim-cmp
+git clone --depth=1 https://github.com/neovim/nvim-lspconfig
+git clone --depth=1 https://github.com/nvim-treesitter/nvim-treesitter
+git clone --depth=1 https://github.com/simrat39/rust-tools.nvim
+git clone --depth=1 https://github.com/simrat39/symbols-outline.nvim
 ----
 
 ==== FZF
@@ -84,3 +92,10 @@ For FreeBSD the CFLAGS need to be edited:
 
 * `CPPFLAGS += -I/usr/local/include`
 * `CPPFLAGS += $$(freetype-config --cflags)` 
+
+== rust-analyzer
+[source,bash]
+---
+git clone https://github.com/rust-analyzer/rust-analyzer
+cargo xtask install --server
+---

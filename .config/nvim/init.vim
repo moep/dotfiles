@@ -118,7 +118,7 @@ augroup end
 " == custom commands ===============================================================================
 " {{{
 " leader key: ,
-let mapleader=","
+let mapleader="\\"
 
 " no timeout for leader
 "set notimeout
@@ -272,5 +272,8 @@ augroup lsp_install
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+set completeopt=menu,menuone,noselect
+
 " https://github.com/neovim/nvim-lspconfig
 lua require('lsp_rust')
+lua require('lsp_keymap')
