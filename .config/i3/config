@@ -20,10 +20,13 @@ bindsym XF86AudioMute exec alacritty
 # Start picom (currently not needed) 
 exec --no-startup-id picom --config ~/.config/i3/picom.conf --experimental-backend 
 bindsym $mod+Shift+p exec --no-startup-id picom --config ~/.config/i3/picom.conf --experimental-backend 
-bindsym $mod+Shift+o exec killall picom
+bindsym $mod+Shift+o exec --no-startup-id killall picom
 
 # Start Dunst
 exec --no-startup-id dunst
+
+# Load gtk settings using xsettingsd
+exec --no-startup-id xsettingsd
 
 # Hide title bar
 new_window pixel 0
@@ -49,6 +52,9 @@ set $bg_color_inactive   #222222
 set $fg_color            #222222
 set $fg_color_inactive   #222222
 
+#set $bg_color_inactive   #f6f5f4
+#set $fg_color            #f6f5f4
+#set $fg_color_inactive   #f6f5f4
 
 # Windows
 # class                 border              background         text                 indicator
@@ -73,7 +79,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec --no-startup-id alacritty
 
 
 # kill focused window
@@ -139,16 +145,19 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "  1"
+set $ws2 "  2"
+set $ws3 "  3"
+#set $ws1 " 1 "
+#set $ws2 " 2 "
+#set $ws3 " 3 "
+set $ws4 " 4 "
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 " 8 "
+set $ws9 " 9 "
+set $ws10 " 10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -180,7 +189,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r  exec --no-startup-id xsettingsd& ; restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -239,7 +248,7 @@ bar {
     #background $fg_color_inactive
     #background #00000099
     #background #191917
-    background #222222
+    background $bg_color_inactive 
     #                  border             bg                 text
     #inactive_workspace #191917            #191917            #ffffff
     #focused_workspace  #191917            #191917            $bg_color_active

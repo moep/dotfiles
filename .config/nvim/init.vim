@@ -4,8 +4,6 @@
 " For more info type
 " :help moep
 
-echohl Error | echo "(V) (°,,,°) (V)" | echohl None
-
 " == general settings ==============================================================================
 " {{{
 " use system's vim settings
@@ -18,7 +16,9 @@ set nocompatible
 set mouse=a
 
 " color scheme
-" fogbell_lite sunbather
+if &t_Co > 255
+  set termguicolors
+endif
 colorscheme photon_moep
 
 " Status line
@@ -138,8 +138,8 @@ nnoremap <F1> make kernel
 nnoremap <F2> make run
 
 " Buffers in general
-nnoremap <silent> <leader>> :bn<CR>
-nnoremap <silent> <leader>< :bp<CR>
+nnoremap <silent> <leader>h :bn<CR>
+nnoremap <silent> <leader>l :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
 nnoremap <silent> <C-Left>  :bp<CR>
 nnoremap <silent> <C-Down>  :bd<CR>
@@ -151,8 +151,6 @@ nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <Leader>e :Buffers<CR>
 nnoremap <silent> <leader>. :Buffers<CR>
 
-" Tagbar
-nnoremap <silent> <Leader>o :TagbarToggle<CR>
 " misc
 "nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
@@ -194,24 +192,13 @@ let g:lightline.mode_map = {
     \ }
 " }}}
 
-" == buftabline ====================================================================================
+" == bufferline ====================================================================================
 " {{{
-" 0 - off, 1 - buffer no, 2 - ordinal no
-let g:buftabline_numbers=1
-let g:buftabline_indicators=1
+lua require('config/bufferline')
+lua require('config/devicons')
 
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+nnoremap <silent> <leader>b :BufferLinePick<CR>
 " }}}
-
 " == git gutter ====================================================================================
 " {{{
 function! LightlineGitGutter()
@@ -247,6 +234,7 @@ highlight GitGutterChangeDelete ctermfg=39
 " }}}
 
 " == nvim-tree =====================================================================================
+" {{{
 lua << EOF
 require'nvim-tree'.setup()
 require'nvim-web-devicons'.setup()
@@ -255,17 +243,9 @@ EOF
 
 " Workaround for fish causing a long freeze when calling NvimTreeToggle (or setup)
 set shell=/usr/local/bin/bash
+" }}}
 
 " == LSP ===========================================================================================
-" https://github.com/prabirshrestha/vim-lsp/blob/master/README.md#registering-servers 
-if executable('clangd12')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'clangd12',
-    \ 'cmd': {server_info->['clangd12', '--background-index', '--header-insertion=never']},
-    \ 'allowlist': ['c', 'cpp', 'objc'],
-    \ 'initialization_options': {},
-    \ })
-endif
 
 augroup lsp_install
   au!
@@ -275,5 +255,8 @@ augroup END
 set completeopt=menu,menuone,noselect
 
 " https://github.com/neovim/nvim-lspconfig
-lua require('lsp_rust')
-lua require('lsp_keymap')
+lua require('config/lsp_rust')
+lua require('config/lsp_keymap')
+lua require('config/lsp_clangd')
+" }}}
+echohl Error | echo "(V) (°,,,°) (V)" | echohl None

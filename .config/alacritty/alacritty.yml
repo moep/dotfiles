@@ -121,7 +121,7 @@ schemes:
   faint: &faint
     primary:
       background: '#232731'
-      foreground: '#9faab8'
+      foreground: '#222222'
     normal:
       black: "#232731"
       red: "#a65f69"

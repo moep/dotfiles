@@ -19,6 +19,7 @@
 !/.config/jrnl/
 !/.config/jrnl/**
 !/.config/nvim/
+!/.config/nvim/foo.lua
 !/.config/nvim/init.vim 
 !/.config/nvim/lua/
 !/.config/nvim/lua/**
@@ -31,9 +32,13 @@
 !/.config/rofi/**
 !/.config/tmux/
 !/.config/tmux/**
+!/.config/xsettingsd/
+!/.config/xsettingsd/*
 !/.gitconfig
 !.gitignore
 !/.inputrc
 !/.lessfilter
 !/.tmux.conf
+!/extras/
+!/extras/**
 !/README.adoc

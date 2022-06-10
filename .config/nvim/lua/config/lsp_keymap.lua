@@ -21,7 +21,7 @@ map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
 map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 
--- TODDO
+-- TODO
 --nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 --nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 -- https://sharksforarms.dev/posts/neovim-rust/
