@@ -44,5 +44,8 @@
   whitespace = red reverse
 [alias]
 	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+  lg = log --oneline
+  lga = lg --oneline --all
+  s = status -s
 [init]
 	defaultBranch = master
