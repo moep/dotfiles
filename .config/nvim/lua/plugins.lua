@@ -18,8 +18,6 @@ local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   vim.notify("Could not initialize packer." , vim.log.levels.ERROR)
   return
-else
-  print("packer OK")
 end
 
 -- Have packer use a popup window
@@ -41,6 +39,7 @@ return packer.startup(function(use)
   use({ "catppuccin/nvim", as = "catppuccin" })
   use({ "andreasvc/vim-256noir" })
   use({ "KabbAmine/yowish.vim" })
+  use({ "NLKNguyen/papercolor-theme" })
 
   -- file explorer
   use({

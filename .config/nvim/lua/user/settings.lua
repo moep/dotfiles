@@ -40,7 +40,7 @@ function M.init(opts)
   -- Status line
   vim.opt.ruler = true
   vim.opt.laststatus = 2
-  vim.cmd "set noshowmode"
+  vim.o.showmode = false
 
   -- Don"t parse last lines for vim commands
   vim.opt.modelines = 0
@@ -96,6 +96,15 @@ function M.init(opts)
     precedes = "«",
     eol = "⏎",
   }
+
+  vim.o.undofile = true
+  vim.o.undodir = vim.fn.stdpath("cache") .. "/undo"
+  vim.o.backup = true
+  vim.o.backupdir = vim.fn.stdpath("data") .. "/undo"
+
+  -- preview :s/foo/bar/
+  vim.o.inccommand = "nosplit"
+
 
   -- TODO autogroup
   -- TODO autoindex
