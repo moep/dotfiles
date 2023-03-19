@@ -1,5 +1,20 @@
 # Override color variables here
 
-#COLOR_PRIMARY=
-#COLOR_SECONDARY=
-#COLOR_MSG_BG=
+#%if "#{==:#{COLORTERM},truecolor}"
+#  COLOR_PRIMARY=
+#  COLOR_PRIMARY_DARK=
+#  COLOR_PRIMARY_DARKER=
+#  COLOR_SECONDARY=
+#  COLOR_MSG_BG=
+#  set -g status-fg #{COLOR_PRIMARY}
+#  set -g status-bg #{COLOR_SECONDARY}
+#%else
+#  COLOR_PRIMARY=
+#  COLOR_PRIMARY_DARK=
+#  COLOR_PRIMARY_DARKER=
+#  COLOR_SECONDARY=
+#  COLOR_MSG_BG=
+#  set -g status-fg #{COLOR_PRIMARY}
+#  set -g status-bg #{COLOR_SECONDARY}
+#%endif
+
