@@ -29,3 +29,5 @@ end
 nvim_lsp.clangd.setup({
   cmd = { "clangd13" }
 })
+
+nvim_lsp.tsserver.setup {}

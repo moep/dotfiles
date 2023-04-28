@@ -77,23 +77,23 @@ schemes:
       background: '#FCFCFA'
       foreground: '#2D2A2E'
     normal:
-      black: "#ff9cff"
-      red: "#796af5"
-      green: "#f0ee6e"
-      yellow: "#6fffff"
+      black: "#2d2a2e"
+      red: "#ff3155"
+      green: "#49f770"
+      yellow: "#fbc334"
       blue: "#00eaff"
       magenta: "#00caff"
       cyan: "#50B0FF"
       white: "#f850ac"
     bright:
-      black: "#ff9cff"
-      red: "#796af5"
-      green: "#f0ee6e"
-      yellow: "#6fffff"
+      black: "#cccccc"
+      red: "#ff3155"
+      green: "#49f770"
+      yellow: "#fbc334"
       blue: "#00eaff"
       magenta: "#00caff"
       cyan: "#50B0FF"
-      white: "#f850ac"
+      white: "#fcfcfa"
 
   moep_dark: &moep_dark
     primary:
@@ -103,7 +103,7 @@ schemes:
       black: "#232628"
       red: "#fb2f2f"
       green: "#21d11f"
-      yellow: "#ffc750"
+      yellow: "#fbc334"
       blue: "#81a4ff"
       magenta: "#f92a72"
       cyan: "#66d9ef"
@@ -112,7 +112,7 @@ schemes:
       black: "#232628"
       red: "#fb2f2f"
       green: "#b7e658"
-      yellow: "#e6db74"
+      yellow: "#fbc334"
       blue: "#aae2f1"
       magenta: "#f92a72"
       cyan: "#66d9ef"

@@ -16,7 +16,7 @@ nnoremap("<leader>l", ":bn<CR>", "Next buffer")
 nnoremap("<leader>h", ":bp<CR>", "Previous buffer")
 nnoremap("<C-Right>", ":bn<CR>", "Next buffer")
 nnoremap("<C-Left>", ":bp<CR>", "Previous buffer")
-nnoremap("<C-Down>", ":bd<CR>", "Close current buffer")
+--nnoremap("<C-w>", ":bd<CR>", "Close current buffer")
 
 -- Nvim Tree
 nnoremap("T", ":NvimTreeToggle<CR>", "Toggle Nvim Tree")

@@ -38,7 +38,7 @@ for_window [class="Alacritty|Firefox"] border pixel 2
 #smart_gaps on
 #default_border pixel 1
 
-#for_window [class="^.*"] border pixel 0
+for_window [class="i3bar"] border pixel 0
 
 # Needs patch
 #border_radius 20
@@ -47,10 +47,10 @@ for_window [class="Alacritty|Firefox"] border pixel 2
 #fbc334 #140d06
 
 # Colors
-set $bg_color            #fbc334
-set $bg_color_inactive   #222222
-set $fg_color            #222222
-set $fg_color_inactive   #222222
+set $bg_color           #fbc334
+set $bg_color_inactive  #222222
+set $fg_color           #222222
+set $fg_color_inactive  #222222
 
 #set $bg_color_inactive   #f6f5f4
 #set $fg_color            #f6f5f4
@@ -90,7 +90,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'UWTtyp0-10' -sf '#ffffff' -sb '#000000' -nb '#ffffff' -nf '#000000' -w 1280 -x 640 -y 720 -dim 0.1 -i"
 
 # FreeBSD's dmenu does not support fading or sizing or positioning
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Terminus-10' -sf '#222222' -sb '#fbc334' -nf '#fbc334' -nb '#222222' -b -i"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Terminus-10' -sf '"$fg_color"' -sb '"$bg_color"' -nf '"$bg_color"' -nb '"$fg_color"' -b -i"
 
 
 # change focus

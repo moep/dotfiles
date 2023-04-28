@@ -19,7 +19,7 @@
 !/.config/jrnl/
 !/.config/jrnl/**
 !/.config/nvim/
-!/.config/nvim/foo.lua
+!/.config/nvim/init.lua
 !/.config/nvim/init.vim 
 !/.config/nvim/lua/
 !/.config/nvim/lua/**

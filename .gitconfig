@@ -16,8 +16,8 @@
     line-numbers-plus-style = "#444444"
     line-numbers-left-format = "{nm:>4}┊"
     line-numbers-right-format = "{np:>4}│"
-    line-numbers-left-style = blue
-    line-numbers-right-style = blue
+    line-numbers-left-style = white
+    line-numbers-right-style = white
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
@@ -45,6 +45,8 @@
 [alias]
 	quickserve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
   lg = log --oneline
+  lg1 = log --oneline -n1
+  lg5 = log --oneline -n5
   lga = lg --oneline --all
   s = status -s
 [init]

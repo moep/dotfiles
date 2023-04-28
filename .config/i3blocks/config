@@ -12,12 +12,18 @@ separator_block_width=0
 markup=pango
 #font=Misc Termsynu 8
 
+[block1]
+label=block1
+
+interval=persist
 [window_title]
 command=~/.config/i3blocks/blocks/window_title
 interval=1
 align=center
-color=#000000
-background=#82ccdd
+color=#fbc334
+background=#222222
+#min_width=2200
+align=center
 
 #[cpu]
 #command=~/.config/i3blocks/blocks/cpu
@@ -32,10 +38,10 @@ command=~/.config/i3blocks/blocks/ip
 interval=60
 align=center
 color=#000000
-background=#cf6a87
+background=#fbc334
 
 [time]
 command=~/.config/i3blocks/blocks/date
 interval=1
 color=#000000
-background=#596275
+background=#fbc334
