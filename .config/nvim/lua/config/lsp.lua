@@ -1,5 +1,8 @@
 -- https://www.reddit.com/r/neovim/comments/wdiv4p/setting_up_neovim_with_lsp_and_clangd/
 
+--
+-- LSP
+--
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then
   vim.notify("Could not initialize LSP config.", vim.log.levels.ERROR)
@@ -26,8 +29,21 @@ local on_attach = function(client, buf_nr)
 
 end
 
+-- 
+-- Server
+--
 nvim_lsp.clangd.setup({
   cmd = { "clangd13" }
 })
 
+require("lsp.fools")
 nvim_lsp.tsserver.setup {}
+nvim_lsp.fools.setup{}
+
+---
+--- Singature Completion
+---
+local cfg = {
+  hint_prefix = "",
+}
+require("lsp_signature").setup(cfg)

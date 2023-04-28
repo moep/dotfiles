@@ -13,11 +13,9 @@ function include(module)
 end
 
 include("plugins")
---include("lsp")
 
 include("user.settings").init({
   colorscheme = "catppuccin-mocha"
-  --colorscheme = "yowish"
 })
 include("user.keybinds")
 
@@ -28,8 +26,4 @@ include("config.lsp")
 -- kopieren von
 -- https://github.com/GideonWolfe/nvim-lua/blob/main/lua/settings.lua
 
---lua print(vim.fn.expand('%'))
---vim.cmd([[echohl Error | echo "(V) (°,,,°) (V)" | echohl None]])
-vim.cmd([[echohl Error]])
-vim.cmd([[echo "foo"]])
-
+vim.cmd([[echohl Error | echo "(V) (°,,,°) (V)" | echohl None]])
