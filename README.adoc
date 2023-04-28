@@ -2,10 +2,11 @@
 
 == moep's .files
 === Requirements
+* delta
 * fish
 * fzf (>= 0.23.0)
-* neovim
-* delta
+* neovim (>= 0.8)
+* ripgrep
 
 ==== For Desktop use:
 * i3
@@ -27,39 +28,18 @@ cd ~/.local/ports/dotfiles
 ln -s .config ~/.config
 
 ln -s .gitconfig ~/.gitconfig
+nvim ~/.gitconfig
 ln -s .inputrc ~/.inputrc
 ln -s .lessfilter ~/.lessfilter
 ----
 
 ==== NVIM plugins
-[source,bash]
-----
-cd ~/.local/ports/dotfiles/.config/nvim/pack/vendor/start
-
-git clone --depth=1 https://github.com/junegunn/fzf
-git clone --depth=1 https://github.com/junegunn/fzf.vim
-git clone --depth=1 https://github.com/itchyny/lightline.vim
-git clone --depth=1 https://github.com/kyazdani42/nvim-tree.lua
-git clone --depth=1 https://github.com/kyazdani42/nvim-web-devicons
-git clone --depth=1 https://github.com/majutsushi/tagbar
-git clone --depth=1 https://github.com/ap/vim-buftabline
-git clone --depth=1 https://github.com/airblade/vim-gitgutter
-
-# for LSP support
-git clone --depth=1 https://github.com/hrsh7th/cmp-buffer
-git clone --depth=1 https://github.com/hrsh7th/cmp-cmdline
-git clone --depth=1 https://github.com/hrsh7th/cmp-nvim-lsp
-git clone --depth=1 https://github.com/hrsh7th/cmp-path
-git clone --depth=1 https://github.com/hrsh7th/nvim-cmp
-git clone --depth=1 https://github.com/neovim/nvim-lspconfig
-git clone --depth=1 https://github.com/nvim-treesitter/nvim-treesitter
-git clone --depth=1 https://github.com/simrat39/rust-tools.nvim
-git clone --depth=1 https://github.com/simrat39/symbols-outline.nvim
-----
+Nvim plugins are now managed by Packer.
 
 ==== FZF
 WARNING: In case you install directly from junegunn/fzf, use options `--no-fish` or `--bin` to prevent conflicts with my keybindings.
 
+* delta
 [source,bash]
 // TODO can be copied from vim plugin folder
 ----
