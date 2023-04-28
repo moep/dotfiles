@@ -41,6 +41,11 @@ return packer.startup(function(use)
   use({ "KabbAmine/yowish.vim" })
   use({ "NLKNguyen/papercolor-theme" })
 
+  -- Treesitter
+  use({ 
+    "nvim-treesitter/nvim-treesitter",
+  })
+
   -- file explorer
   use({
     "kyazdani42/nvim-tree.lua",
@@ -126,6 +131,18 @@ return packer.startup(function(use)
 
   -- LSP
   use ({ "neovim/nvim-lspconfig" })
+
+  -- Telescope
+  use({
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "BurntSushi/ripgrep",
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    }
+  })
+  use({ "gbrlsnchs/telescope-lsp-handlers.nvim" })
 
 
   if packer_bootstrap then

@@ -15,6 +15,11 @@ function nnoremap(lhs, rhs, desc)
   vim.keymap.set("n", lhs, rhs, get_default_opts(desc))
 end
 
+function cnoremap(lhs, rhs, desc)
+  vim.keymap.set("c", lhs, rhs, get_default_opts(desc))
+end
+
+
 function export_keymap() 
   local target = vim.fn.stdpath("state") .. "/keymap.txt"
   local awk_script = vim.fn.stdpath("data") .. "/keymap.awk"

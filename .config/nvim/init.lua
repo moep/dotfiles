@@ -19,9 +19,9 @@ include("user.settings").init({
 })
 include("user.keybinds")
 
--- TODO in plugins verschieben
 include("config.cmp")
 include("config.lsp")
+include("config.telescope")
 
 -- kopieren von
 -- https://github.com/GideonWolfe/nvim-lua/blob/main/lua/settings.lua

@@ -1,4 +1,5 @@
-include("utils")
+require("utils")
+local telescope = require('telescope.builtin')
 
 vim.g.mapleader = "\\"
 vim.g.mapllocaleader = ","
@@ -21,18 +22,25 @@ nnoremap("<C-Left>", ":bp<CR>", "Previous buffer")
 -- Nvim Tree
 nnoremap("T", ":NvimTreeToggle<CR>", "Toggle Nvim Tree")
 
+-- Telescope
+nnoremap("<leader>p", telescope.find_files, "Telescope: Find Files by Name")
+nnoremap("<leader>f", telescope.live_grep, "Telescope: Find in Files")
+nnoremap("<leader>e", telescope.buffers, "Telescope: Buffers")
+nnoremap("<leader>m", telescope.marks, "Telescope: Show marks")
+nnoremap("<leader>o", telescope.lsp_document_symbols, "Telescope: Show document symbols")
+nnoremap("<leader>r", telescope.lsp_references, "Telescope: Show symbol references")
+inoremap("<C-r>r", telescope.registers, "Telescope: Show registers")
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(event) 
+  callback = function(event)
     -- <C-x><C-o>
     vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     -- See ':h vim.lsp.*'
-    local opts = { buffer = event.buf }
-    nnoremap("gD",  vim.lsp.buf.declaration, "[LSP] Go to declaration")
-    nnoremap("gd",  vim.lsp.buf.definition, "[LSP] Go to definition")
+    nnoremap("gD", vim.lsp.buf.declaration, "[LSP] Go to declaration")
+    nnoremap("gd", vim.lsp.buf.definition, "[LSP] Go to definition")
     nnoremap("gr", vim.lsp.buf.references, "[LSP] Show references")
     nnoremap("<F2>", vim.lsp.buf.rename, "[LSP] Rename")
   end
 })
-
