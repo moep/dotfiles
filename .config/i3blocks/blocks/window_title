@@ -5,7 +5,8 @@
 function read_window_title() {  
   local id=$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')
   local name=$(xprop -id "${id}" | awk '/_NET_WM_NAME/{$1=$2=""; print}' | cut -d '"' -f2)
-  printf "%s%s%s\n" "<span font=\"${font}\">" "  " "${name} </span>"
+  #printf "%s%s%s\n" "<span font=\"${font}\">" "  " "${name} </span>"
+  printf "%s\n" "  ${name} "
 }
 
 read_window_title

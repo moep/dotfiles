@@ -18,6 +18,8 @@
 !/.config/i3status/**
 !/.config/jrnl/
 !/.config/jrnl/**
+!/.config/npm/
+!/.config/npm/**
 !/.config/nvim/
 !/.config/nvim/init.lua
 !/.config/nvim/init.vim 

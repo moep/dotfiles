@@ -16,7 +16,7 @@ end
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  vim.notify("Could not initialize packer." , vim.log.levels.ERROR)
+  vim.notify("Could not initialize packer.", vim.log.levels.ERROR)
   return
 end
 
@@ -42,7 +42,7 @@ return packer.startup(function(use)
   use({ "NLKNguyen/papercolor-theme" })
 
   -- Treesitter
-  use({ 
+  use({
     "nvim-treesitter/nvim-treesitter",
   })
 
@@ -86,42 +86,41 @@ return packer.startup(function(use)
   })
 
   -- Highlight color values in their respective color
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("config.colorizer")
-		end,
-		ft = {'css', 'javascript', 'json', 'lua', 'scss', 'ts', 'vim'}
-	})
-  
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("config.colorizer")
+    end,
+  })
+
   -- Additional syntax files
   use({ "nickeb96/fish.vim" })
 
   -- auto completion
-  use({ 
+  use({
     "hrsh7th/nvim-cmp",
     requires = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer", 
-      "hrsh7th/cmp-path", 
-      "hrsh7th/cmp-cmdline", 
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
 
       "hrsh7th/cmp-calc",
-      "f3fora/cmp-spell", 
+      "f3fora/cmp-spell",
       "hrsh7th/cmp-emoji",
     },
-    config = function() 
+    config = function()
       require("config.cmp")
     end
   })
 
   -- Luasnip
   use({ "saadparwaiz1/cmp_luasnip" })
-  use({ 
+  use({
     "L3MON4D3/LuaSnip",
     after = "nvim-cmp",
-    config = function() 
+    config = function()
       require("config.snippets")
     end
   })
@@ -130,7 +129,7 @@ return packer.startup(function(use)
   use({ "ray-x/lsp_signature.nvim" })
 
   -- LSP
-  use ({ "neovim/nvim-lspconfig" })
+  use({ "neovim/nvim-lspconfig" })
 
   -- Telescope
   use({
@@ -151,4 +150,3 @@ return packer.startup(function(use)
     packer.compile()
   end
 end)
-
