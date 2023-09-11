@@ -22,6 +22,7 @@ include("user.keybinds")
 include("config.cmp")
 include("config.lsp")
 include("config.telescope")
+include("config.feline");
 
 -- kopieren von
 -- https://github.com/GideonWolfe/nvim-lua/blob/main/lua/settings.lua

@@ -1,8 +1,8 @@
 local M = {}
 
--- Init default options and overwrite them with existing options from opts. 
+-- Init default options and overwrite them with existing options from opts.
 -- @param user_opts Options to initialize
-local function init_default_opts(user_opts) 
+local function init_default_opts(user_opts)
   local default_opts = {
     colorscheme = "default",
   }
@@ -25,7 +25,7 @@ function M.init(opts)
   vim.o.mouse = "a"
 
   -- colorscheme
-  local colorterm = vim.env.COLORTERM 
+  local colorterm = vim.env.COLORTERM
   if colorterm ~= "truecolor" then
     -- TTY mode
     vim.opt.termguicolors = false
@@ -53,7 +53,7 @@ function M.init(opts)
   vim.opt.smartcase = true
   vim.opt.infercase = true
   vim.opt.wildignorecase = true
-  vim.opt.wildignore:append({".git", "*.tmp", "*.o", "*.obj"});
+  vim.opt.wildignore:append({ ".git", "*.tmp", "*.o", "*.obj" });
 
   -- search highlight
   vim.opt.hlsearch = true
@@ -64,7 +64,7 @@ function M.init(opts)
   vim.opt.relativenumber = true
 
   --" better backspace handling
-  vim.opt.backspace="indent,eol,start"
+  vim.opt.backspace = "indent,eol,start"
   vim.opt.softtabstop = 2
 
   -- indent 2 spaces; every 2 spaces
@@ -110,9 +110,9 @@ function M.init(opts)
   -- TODO autoindex
   -- TODO c specific settings
   --
-  -- TODO see https://stackoverflow.com/questions/71152802/how-to-override-color-scheme-in-neovim-lua-config-file
+  -- TODO see https://stackoverflow.com/questions/71152802/how-to-override-color-scheme-in-neov im-lua-config-file
   vim.opt.cursorline = true
   vim.opt.cursorcolumn = false
-end 
+end
 
 return M

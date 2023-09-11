@@ -67,13 +67,15 @@ return packer.startup(function(use)
 
   -- custom statusbar
   -- TODO use glepnir/galaxyline.nvim instead?
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require("config.lualine")
-    end,
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
+  --use {
+  --  'nvim-lualine/lualine.nvim',
+  --  config = function()
+  --    require("config.lualine")
+  --  end,
+  --  requires = { 'kyazdani42/nvim-web-devicons' }
+  --}
+
+  use({ "feline-nvim/feline.nvim" })
 
   -- visual aid for indents
   -- TODO only for certain file types?

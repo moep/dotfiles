@@ -4,22 +4,11 @@ debug:
 font:
   size: 10
   normal:
-    #family: monospace
-    #family: UWTtyp0
-    #family: GohuFont
-    family: Terminus
-
+    family: Terminus (TTF)
   bold:
-    #family: GohuFont
-    #family: UWTtyp0
-    #family: GohuFont Nerd Font Mono
-    family: Terminus
+    family: Terminus (TTF)
   italic:
-    #family: GohuFont
-    #family: UWTtyp0
-    #family: GohuFont Nerd Font Mono
-    family: Terminus
-
+    family: Terminus (TTF)
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }

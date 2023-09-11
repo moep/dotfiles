@@ -3,6 +3,12 @@ if (not status) then
   vim.notify("Could not initialize CMP config.", vim.log.levels.ERROR)
   return
 end
+--local luasnip
+--status, luasnip = pcall(require, "luasnip")
+--if (not status) then
+--  vim.notify("Could not initialize luasnip.", vim.log.levels.ERROR)
+--  return
+--end
 
 cmp.setup({
   snipptet = {
@@ -12,19 +18,19 @@ cmp.setup({
   },
 
   --mapping = cmp.mapping.preset.insert({
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-f>"] = cmp.mapping.scroll_docs(4),
   --  ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
+  ["<C-e>"] = cmp.mapping.close(),
   --  ["<CR>"] = cmp.mapping.confirm({
   --    behavior = cmp.ConfirmBehavior.Replace,
   --    select = true,
   --  }),
   --}),
-  
+
   mapping = cmp.mapping.preset.insert {
-    ["<CR>"] = cmp.mapping.confirm({ 
-      select = true 
+    ["<CR>"] = cmp.mapping.confirm({
+      select = true
     }),
 
     ["<C-n>"] = cmp.mapping(function(fallback)
@@ -51,10 +57,10 @@ cmp.setup({
   },
 
   sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = "buffer" },
-      { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "buffer" },
+    { name = "luasnip" },
   }),
 
   formatting = {
@@ -62,7 +68,7 @@ cmp.setup({
   },
 })
 
-cmp.setup.cmdline({ "/", "?"}, {
+cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = "buffer" }
@@ -80,7 +86,7 @@ cmp.setup.cmdline({ ":" }, {
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig")["tsserver"].setup({
-  capabilities = capabilities 
+  capabilities = capabilities
 })
 
 --vim.cmd [[
