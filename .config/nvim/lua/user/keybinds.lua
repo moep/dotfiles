@@ -41,11 +41,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nnoremap("gD", vim.lsp.buf.declaration, "[LSP] Go to declaration")
     nnoremap("gd", vim.lsp.buf.definition, "[LSP] Go to definition")
     nnoremap("gi", vim.lsp.buf.implementation, "[LSP] Go to implementation")
-    nnoremap("gr", vim.lsp.buf.references, "[LSP] Show references")
+    --nnoremap("gr", vim.lsp.buf.references, "[LSP] Show references")
     nnoremap("<leader>s", vim.lsp.buf.signature_help, "[LSP] Show signature information")
     --nnoremap("<leader>L", vim.lsp.buf.open_float, "[LSP] Show diagnostics")
     nnoremap("K", vim.lsp.buf.hover, "[LSP] Show hover information")
     nnoremap("<F2>", vim.lsp.buf.rename, "[LSP] Rename")
     nnoremap("<leader>q", vim.lsp.buf.code_action, "[LSP] Quick fix")
+
+    -- Trouble
+    local trouble = require("trouble")
+    nnoremap("<leader>xx", function() trouble.toggle("document_diagnostics") end, "[Trouble] Open")
+    nnoremap("<leader>xw", function() trouble.toggle("workspace_diagnostics") end, "[Trouble] Open")
+    nnoremap("<leader>xq", function() trouble.toggle("quickfix") end, "[Trouble] Open")
+    nnoremap("gr", function() trouble.toggle("lsp_references") end, "[LSP] Show references")
+
+    --vim.keymap.set("n", "<leader>xx", function() require("trouble").open() end)
+    --vim.keymap.set("n", "<leader>xw", function() require("trouble").open("workspace_diagnostics") end)
+    --vim.keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagnostics") end)
+    --vim.keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
+    --vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
+    --vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
   end
 })

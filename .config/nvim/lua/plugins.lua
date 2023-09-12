@@ -75,7 +75,9 @@ return packer.startup(function(use)
   --  requires = { 'kyazdani42/nvim-web-devicons' }
   --}
 
-  use({ "feline-nvim/feline.nvim" })
+  -- unmaintained
+  --use({ "feline-nvim/feline.nvim" })
+  use({ "freddiehaddad/feline.nvim" })
 
   -- visual aid for indents
   -- TODO only for certain file types?

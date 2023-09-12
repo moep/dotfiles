@@ -7,7 +7,7 @@ vim.lsp.set_log_level("trace")
 vim.opt.runtimepath:prepend("~/.local/ports/nvim/runtimepath/,")
 vim.o.path = vim.o.path .. "~/.local/ports/nvim/runtimepath/"
 
-function include(module)
+local function include(module)
   package.loaded[module] = nil
   return require(module)
 end
@@ -22,7 +22,8 @@ include("user.keybinds")
 include("config.cmp")
 include("config.lsp")
 include("config.telescope")
-include("config.feline");
+include("config.feline")
+include("config.trouble")
 
 -- kopieren von
 -- https://github.com/GideonWolfe/nvim-lua/blob/main/lua/settings.lua

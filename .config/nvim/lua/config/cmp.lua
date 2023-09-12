@@ -40,13 +40,6 @@ cmp.setup({
       select = true
     }),
 
-    ["<Tab>"] = function()
-      print("tab pressed")
-      return cmp.mapping.confirm({
-        select = true
-      })
-    end,
-
     ["<C-n>"] = cmp.mapping(function(fallback)
       local luasnip = require("luasnip")
       if cmp.visible() then
@@ -54,10 +47,8 @@ cmp.setup({
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
-        print("has_words_before")
         cmp.complete()
       else
-        print("fallback")
         fallback()
       end
     end, { "i", "s" }),
