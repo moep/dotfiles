@@ -107,7 +107,6 @@ return packer.startup(function(use)
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
-
       "hrsh7th/cmp-calc",
       "f3fora/cmp-spell",
       "hrsh7th/cmp-emoji",
@@ -144,6 +143,12 @@ return packer.startup(function(use)
     }
   })
   use({ "gbrlsnchs/telescope-lsp-handlers.nvim" })
+
+  -- Outline
+  use({ "simrat39/symbols-outline.nvim" })
+
+  -- LSP error list
+  use({ "folke/trouble.nvim" })
 
 
   if packer_bootstrap then

@@ -40,7 +40,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- See ':h vim.lsp.*'
     nnoremap("gD", vim.lsp.buf.declaration, "[LSP] Go to declaration")
     nnoremap("gd", vim.lsp.buf.definition, "[LSP] Go to definition")
+    nnoremap("gi", vim.lsp.buf.implementation, "[LSP] Go to implementation")
     nnoremap("gr", vim.lsp.buf.references, "[LSP] Show references")
+    nnoremap("<leader>s", vim.lsp.buf.signature_help, "[LSP] Show signature information")
+    --nnoremap("<leader>L", vim.lsp.buf.open_float, "[LSP] Show diagnostics")
+    nnoremap("K", vim.lsp.buf.hover, "[LSP] Show hover information")
     nnoremap("<F2>", vim.lsp.buf.rename, "[LSP] Rename")
+    nnoremap("<leader>q", vim.lsp.buf.code_action, "[LSP] Quick fix")
   end
 })

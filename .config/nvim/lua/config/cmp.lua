@@ -3,12 +3,19 @@ if (not status) then
   vim.notify("Could not initialize CMP config.", vim.log.levels.ERROR)
   return
 end
+
+
 --local luasnip
 --status, luasnip = pcall(require, "luasnip")
 --if (not status) then
 --  vim.notify("Could not initialize luasnip.", vim.log.levels.ERROR)
 --  return
 --end
+
+local has_words_before = function()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  return (vim.api.nvim_buf_get_lines(0, cursor[1] - 1, cursor[1], true)[1] or ''):sub(cursor[2], cursor[2]):match('%s')
+end
 
 cmp.setup({
   snipptet = {
@@ -33,25 +40,36 @@ cmp.setup({
       select = true
     }),
 
+    ["<Tab>"] = function()
+      print("tab pressed")
+      return cmp.mapping.confirm({
+        select = true
+      })
+    end,
+
     ["<C-n>"] = cmp.mapping(function(fallback)
+      local luasnip = require("luasnip")
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
+        print("has_words_before")
         cmp.complete()
       else
+        print("fallback")
         fallback()
       end
     end, { "i", "s" }),
 
     ["<C-p>"] = cmp.mapping(function(fallback)
+      local luasnip = require("luasnip")
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
-        fallaback()
+        fallback()
       end
     end, { "i", "s" }),
   },
@@ -59,8 +77,9 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
-    { name = "buffer" },
     { name = "luasnip" },
+  }, {
+    { name = "buffer" },
   }),
 
   formatting = {
@@ -88,6 +107,9 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig")["tsserver"].setup({
   capabilities = capabilities
 })
+require("lspconfig")["lua_ls"].setup({
+  capabilities = capabilities
+})
 
 --vim.cmd [[
 --  set completeopt=menuone,noinsert,noselect
@@ -95,3 +117,7 @@ require("lspconfig")["tsserver"].setup({
 --]]
 
 --vim.notify("CMP initialized", vim.log.levels.DEBUG)
+
+function foo()
+
+end

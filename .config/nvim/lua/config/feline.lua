@@ -88,10 +88,8 @@ local mode_component = {
 
 local file_name_component = {
   provider = function()
-    --local path = vim.fn.expand("%:.")
-    local path = vim.fn.expand("%F")
-    print("path: " .. path)
-    return "wtf" .. path .. "<"
+    local path = vim.fn.expand("%:p:.")
+    return path
   end,
   hl = {
     fg = C.text,
