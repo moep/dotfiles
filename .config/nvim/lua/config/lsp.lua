@@ -38,7 +38,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Clangd
 nvim_lsp.clangd.setup({
-  cmd = { "clangd13" }
+  cmd = { "clangd15" }
 })
 
 nvim_lsp.lua_ls.setup({

@@ -2,7 +2,7 @@
 set -g status-right-length 50
 
 # FreeBSD specific configuration
-# kldload coretemp or add `coretem_load="YES"` to /etc/rc.conf
+# kldload coretemp or add `coretemp_load="YES"` to /etc/rc.conf
 if-shell -b "[ $(uname) == 'FreeBSD' ]" {
   %if "#{==:#{COLORTERM},truecolor}"
     LOGO=""

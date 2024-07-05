@@ -1,1 +1,0 @@
-../conf.d.opt/900-freebsd.fish
