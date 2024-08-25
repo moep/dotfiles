@@ -26,137 +26,18 @@ foreground = "#ffffff"
 log_level = "info"
 
 [font]
-size = 10
+size = 11
 
 [font.bold]
-family = "Terminus (TTF)"
+family = "GohuFont uni14 Nerd Font Mono"
 
 [font.italic]
-family = "Terminus (TTF)"
+family = "GohuFont uni14 Nerd Font Mono"
 
 [font.normal]
-family = "Terminus (TTF)"
+family = "GohuFont uni14 Nerd Font Mono"
 
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
 
-[schemes.faint.bright]
-black = "#6f798c"
-blue = "#5287ad"
-cyan = "#3c97ad"
-green = "#469e76"
-magenta = "#cc6d8b"
-red = "#b86974"
-white = "#9faab8"
-yellow = "#c7a775"
-
-[schemes.faint.normal]
-black = "#232731"
-blue = "#487799"
-cyan = "#348396"
-green = "#3b8563"
-magenta = "#b9637e"
-red = "#a65f69"
-white = "#6f798c"
-yellow = "#b39669"
-
-[schemes.faint.primary]
-background = "#232731"
-foreground = "#222222"
-
-[schemes.moep_bright.bright]
-black = "#cccccc"
-blue = "#00eaff"
-cyan = "#50B0FF"
-green = "#49f770"
-magenta = "#00caff"
-red = "#ff3155"
-white = "#fcfcfa"
-yellow = "#fbc334"
-
-[schemes.moep_bright.normal]
-black = "#2d2a2e"
-blue = "#00eaff"
-cyan = "#50B0FF"
-green = "#49f770"
-magenta = "#00caff"
-red = "#ff3155"
-white = "#f850ac"
-yellow = "#fbc334"
-
-[schemes.moep_bright.primary]
-background = "#FCFCFA"
-foreground = "#2D2A2E"
-
-[schemes.moep_dark.bright]
-black = "#232628"
-blue = "#aae2f1"
-cyan = "#66d9ef"
-green = "#b7e658"
-magenta = "#f92a72"
-red = "#fb2f2f"
-white = "#f8f8f8"
-yellow = "#fbc334"
-
-[schemes.moep_dark.normal]
-black = "#232628"
-blue = "#81a4ff"
-cyan = "#66d9ef"
-green = "#21d11f"
-magenta = "#f92a72"
-red = "#fb2f2f"
-white = "#cfcfcf"
-yellow = "#fbc334"
-
-[schemes.moep_dark.primary]
-background = "#222222"
-foreground = "#ffffff"
-
-[schemes.monokai_pro.bright]
-black = "#727072"
-blue = "#1B6CA8"
-cyan = "#78DCE8"
-green = "#A9DC76"
-magenta = "#AB9DF2"
-red = "#FF6188"
-white = "#FCFCFA"
-yellow = "#FFD866"
-
-[schemes.monokai_pro.normal]
-black = "#403E41"
-blue = "#1B6CA8"
-cyan = "#78DCE8"
-green = "#A9DC76"
-magenta = "#AB9DF2"
-red = "#FF6188"
-white = "#FCFCFA"
-yellow = "#FFD866"
-
-[schemes.monokai_pro.primary]
-background = "#2D2A2E"
-foreground = "#FCFCFA"
-
-[schemes.vice.bright]
-black = "#ff9cff"
-blue = "#00eaff"
-cyan = "#50B0FF"
-green = "#f0ee6e"
-magenta = "#00caff"
-red = "#796af5"
-white = "#f850ac"
-yellow = "#6fffff"
-
-[schemes.vice.normal]
-black = "#ff9cff"
-blue = "#00eaff"
-cyan = "#50B0FF"
-green = "#f0ee6e"
-magenta = "#00caff"
-red = "#796af5"
-white = "#f850ac"
-yellow = "#6fffff"
-
-[schemes.vice.primary]
-background = "#2D2A2E"
-foreground = "#FCFCFA"

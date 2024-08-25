@@ -84,7 +84,8 @@ return packer.startup(function(use)
   use({
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("config.indent-blankline")
+      --require("config.indent-blankline")
+      require("ibl").setup()
     end,
     -- ft = {}
   })

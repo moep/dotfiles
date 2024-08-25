@@ -8,8 +8,12 @@
 !/.config/dunst/**
 !/.config/fish/
 !/.config/fish/**
+!/.config/git/
+!/.config/git/**
 !/.config/htop/
 !/.config/htop/**
+!/.config/hypr/
+!/.config/hypr/**
 !/.config/i3/
 !/.config/i3/**
 !/.config/i3blocks/
@@ -34,6 +38,8 @@
 !/.config/rofi/**
 !/.config/tmux/
 !/.config/tmux/**
+!/.config/waybar/
+!/.config/waybar/**
 !/.config/xsettingsd/
 !/.config/xsettingsd/*
 !/.gitconfig
