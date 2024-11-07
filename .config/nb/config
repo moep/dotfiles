@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+###############################################################################
+# .nbrc
+#
+# Configuration file for `nb`, a command line note-taking, bookmarking,
+# and knowledge base application with encryption, search, Git-backed syncing,
+# and more in a single portable script.
+#
+# Edit this file manually or manage settings using the `nb settings`
+# subcommand. Configuration options are set as environment variables, eg:
+#   export NB_ENCRYPTION_TOOL=gpg
+#
+# https://github.com/xwmx/nb
+###############################################################################
+
+NB_AUDIO_TOOL=mplayer
+NB_AUTO_SYNC=1
+NB_BROSWER=lynx
+
+NB_COLOR_THEME=electro
+NB_DEFAULT_EXTENSION=md
+NB_DIRECTORY_TOOL=nnn
+#NB_EDITOR=vim
+NB_ENCRYPTION_TOOL=gpg
+NB_FOLDERS_FIRST=1
+NB_FOOTER=0
+NB_GUI_BROWSER=firefox-bin
+NB_HEADER=3
+NB_IMAGE_TOOL=imgcat
+
+NB_INDICATOR_AUDIO="A"
+NB_INDICATOR_BOOKMARK="B"
+NB_INDICATOR_DOCUMENT="F"
+NB_INDICATOR_EBOOK="EB"
+NB_INDICATOR_ENCRYPTED="?"
+NB_INDICATOR_FOLDER="D"
+NB_INDICATOR_IMAGE="I"
+NB_INDICATOR_PINNED="!"
+NB_INDICATOR_TODO=""
+NB_INDICATOR_TODO_DONE=""
+NB_INDICATOR_VIDEO="V"
+
+NB_LIMIT=auto
+NB_MARKDOWN_TOOL=glow
+NB_PINNED_PATTERN="#p"
+
+NB_SERVER_HOST="localhost"
+NB_SERVER_PORT="6789"
+
+NB_USER_AGENT=curl
