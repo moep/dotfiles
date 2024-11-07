@@ -1,3 +1,6 @@
+function __nnn_indicator
+end
+
 function fish_right_prompt
 	#set -l last_status $status
 	## Prompt status only if it's not 0
@@ -7,4 +10,10 @@ function fish_right_prompt
 	#end
 
 	#echo -n $stat
+
+  if test -n "$NNNLVL" -a "$NNNLVL" -ge 1
+    echo -n -s (set_color 444444) "[nnn]" (set_color normal)
+    return
+  end
+
 end
