@@ -60,9 +60,9 @@ nvim_lsp.lua_ls.setup({
 })
 
 -- Dummy
-require("lsp.fools")
-nvim_lsp.tsserver.setup {}
-nvim_lsp.fools.setup {}
+--require("lsp.fools")
+--nvim_lsp.tsserver.setup {}
+--nvim_lsp.fools.setup {}
 
 ---
 --- Singature Completion

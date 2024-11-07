@@ -8,7 +8,7 @@
 
 
 # Default editor
-set -gx EDITOR vim
+set -gx EDITOR nvim
 
 set -a fish_user_paths ~/.local/bin
 
