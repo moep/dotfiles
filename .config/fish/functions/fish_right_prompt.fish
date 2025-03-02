@@ -12,8 +12,9 @@ function fish_right_prompt
 	#echo -n $stat
 
   if test -n "$NNNLVL" -a "$NNNLVL" -ge 1
-    echo -n -s (set_color 444444) "[nnn]" (set_color normal)
-    return
+    echo -n -s (set_color 444444) "[nnn] " (set_color normal)
   end
-
+  
+  set -l duration (printf "%.3f" (math "$CMD_DURATION / 1000"))
+  echo -n -s (set_color 444444) $duration (set_color normal)
 end

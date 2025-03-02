@@ -26,11 +26,11 @@ set -g __fish_git_prompt_char_stateseparator ''
 
 
 function fish_prompt
-	set -l last_status $status
-	set -l stat
-	if test $last_status -ne 0
-		set stat (set_color -b fa286a black --bold)"[$last_status]"(set_color normal)" "
-	end
+  set -l last_status $pipestatus[1]
+  set -l stat
+  if test $last_status -ne 0;
+    set stat (set_color -b fa286a black --bold)"[$last_status]"(set_color normal)" "
+  end
 
   if __is_git
     echo -n -s $stat (set_color black -b 9d00ff) " " (prompt_pwd) " " (fish_git_prompt "%s ")

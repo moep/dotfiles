@@ -19,3 +19,17 @@ window#waybar{
   border-left: 2px solid #333333;
   border-right: 2px solid #333333;
 }
+
+#battery, #cpu, #language, #memory, #temperature {
+  /*background-color: yellow;*/
+  /*padding: 0 0.5rem;*/
+}
+
+
+#battery.warning {
+  color: yellow;
+}
+
+#battery.critical, #temperature.critical {
+  color: yellow;
+}
