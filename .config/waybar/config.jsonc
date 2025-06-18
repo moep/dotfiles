@@ -35,7 +35,7 @@
     ],
     // Modules configuration
     "hyprland/language": {
-      "format": "<span font_size=\"200%\"></span><span rise=\"5pt\"> {short}</span>"
+      "format": " {short}"
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -116,7 +116,7 @@
     },
     "cpu": {
         "interval": 5,
-        "format": "<span font_size=\"200%\"></span><span rise=\"5.5pt\"> {usage}%</span>",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
@@ -127,7 +127,7 @@
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "<span font_size=\"150%\">{icon}</span><span rise=\"2pt\"> {temperatureC}°C</span>",
+        "format": "{icon}{temperatureC}°C",
         "format-icons": ["", "", ""]
     },
     "backlight": {
@@ -144,7 +144,7 @@
             "critical": 15
         },
         //"full-at": 80,
-        "format": "{icon}{capacity}%",
+        "format": "{icon} {capacity}%",
         "format-full": "{capacity}%",
         "format-charging": "{capacity}% [C]",
         "format-plugged": "{capacity}% [P]",
@@ -178,7 +178,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}{volume}% {format_source}",
+        "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "muted",

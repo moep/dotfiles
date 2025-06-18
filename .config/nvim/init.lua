@@ -4,8 +4,8 @@ vim.lsp.set_log_level("trace")
 --   does not work:
 --   https://stackoverflow.com/questions/73358168/where-can-i-check-my-neovim-lua-runtimepath
 --   lua print(vim.inspect(vim.api.nvim_list_runtime_paths()))
-vim.opt.runtimepath:prepend("~/.local/ports/nvim/runtimepath/,")
-vim.o.path = vim.o.path .. "~/.local/ports/nvim/runtimepath/"
+--vim.opt.runtimepath:prepend("~/.local/ports/nvim/runtimepath/,")
+--vim.o.path = vim.o.path .. "~/.local/ports/nvim/runtimepath/"
 
 local function include(module)
   package.loaded[module] = nil

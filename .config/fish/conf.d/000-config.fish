@@ -10,7 +10,7 @@
 # Default editor
 set -gx EDITOR nvim
 
-set -a fish_user_paths ~/.local/bin
+fish_add_path ~/.local/bin
 
 # TODO Add check if term has capability (maybe only allow from X terminals?)
 #set -gx LS_COLORS (/usr/bin/ls_colors_generator)
