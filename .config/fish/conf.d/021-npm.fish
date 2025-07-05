@@ -1,4 +1,4 @@
-set -a fish_user_paths ~/.local/lib/npm/bin
+fish_add_path ~/.local/lib/npm/bin
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/config
 
 #for the time being, I've added export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/config to my bashrc, which allowed me to move 

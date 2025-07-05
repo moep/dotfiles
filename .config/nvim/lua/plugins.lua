@@ -40,6 +40,7 @@ return packer.startup(function(use)
   use({ "andreasvc/vim-256noir" })
   use({ "KabbAmine/yowish.vim" })
   use({ "NLKNguyen/papercolor-theme" })
+  use({ "Th3Whit3Wolf/onebuddy" })
 
   -- Treesitter
   use({
@@ -77,7 +78,7 @@ return packer.startup(function(use)
 
   -- unmaintained
   --use({ "feline-nvim/feline.nvim" })
-  use({ "freddiehaddad/feline.nvim" })
+  use({ "famiu/feline.nvim" })
 
   -- visual aid for indents
   -- TODO only for certain file types?

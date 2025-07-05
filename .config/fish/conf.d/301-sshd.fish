@@ -9,7 +9,6 @@ if not string length --quiet $TMUX; and string length --quiet $SSH_TTY; and stat
     echo "answer: >>$answer<<"
 
     if string match --quiet --regex 'y|Y' $answer; or not string length --quiet $answer
-      echo "Ja"
       set -x COLORTERM "truecolor"
       break
     end

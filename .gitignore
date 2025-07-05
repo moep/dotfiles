@@ -34,10 +34,13 @@
 !/.config/nvim-new/
 !/.config/nvim-new/init.lua
 !/.config/nvim-new/README.md
-!/.config/nvim-new/ftplugin/**
+!/.config/nvim-new/ftplugin/
 !/.config/nvim-new/ftplugin/**
 !/.config/nvim-new/lua/
-!/.config/nvim-new/lua/
+!/.config/nvim-new/lua/**
+#!/.config/nvim/pack/
+#!/.config/nvim/pack/my/
+#!/.config/nvim/pack/my/**
 !/.config/ranger/
 !/.config/ranger/rc.conf 
 !/.config/rofi/
