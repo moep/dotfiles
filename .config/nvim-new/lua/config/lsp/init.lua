@@ -1,4 +1,4 @@
-print('hello from lua/config/lsp/init.lua')
+vim.notify('hello from lua/config/lsp/init.lua', vim.log.levels.TRACE)
 
 vim.lsp.set_log_level('WARN')
 
@@ -22,19 +22,19 @@ vim.diagnostic.config({
 })
 
 
-local lsp_group = vim.api.nvim_create_augroup("LspMappings", { clear = true })
-print('lsp group: ' .. lsp_group)
+local LSP_GROUP = vim.api.nvim_create_augroup("LspMappings", { clear = true })
 
+-- refresh loclist when LSP updates diagnostic info
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
-  group = lsp_group,
+  group = LSP_GROUP,
   callback = function()
-    print('diagnostic changed')
     vim.diagnostic.setloclist({open = false})
   end,
 })
 
+-- enable LSP completion per buffer on attach
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = lsp_group,
+  group = LSP_GROUP,
   callback = function(event)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client == nil then return end
@@ -60,6 +60,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- TODO https://davelage.com/posts/neovim-lsp-attach-autocommand/
   end,
 })
+
+-- TODO BufEnter for each file (ftplugin/)
+-- vim.api.nvim_create_autocmd('UiEnter', {
+--   group = LSP_GROUP,
+--   callback = function()
+--     print('starting treesitter')
+--     vim.treesitter.start()
+--   end
+-- })
+
+
+--
+-- language specific LSP configs
+--
 
 require('config.lsp.lua')
 vim.lsp.enable('lua')

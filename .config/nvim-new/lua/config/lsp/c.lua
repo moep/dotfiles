@@ -1,4 +1,4 @@
-print('hello from lua/config/lsp/c.lua')
+vim.notify('hello from lua/config/lsp/c.lua', vim.log.levels.TRACE)
 
 vim.lsp.config.clangd = {
   cmd = { 'clangd' },

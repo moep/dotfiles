@@ -1,4 +1,11 @@
-print('hello from lua/config/user.lua')
+vim.notify('hello from lua/config/user.lua', vim.log.levels.TRACE)
+
+vim.g.mapleader = ','
+vim.g.localleader = ','
+
+-- hide command line if not in use
+-- vim.opt.cmdheight = 0
+
 -- Status line
 -- (might be ignored by custom statusline implementation)
 vim.opt.ruler = true

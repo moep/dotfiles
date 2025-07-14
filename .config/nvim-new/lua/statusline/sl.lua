@@ -1,5 +1,4 @@
-print('hello from lua/statusline.lua')
-
+vim.notify('hello from lua/statusline.lua', vim.log.levels.TRACE)
 local M = {}
 
 ---@return string
