@@ -29,13 +29,13 @@ log_level = "info"
 size = 11
 
 [font.bold]
-family = "GohuFont uni14 Nerd Font Mono"
+family = "GohuFont"
 
 [font.italic]
-family = "GohuFont uni14 Nerd Font Mono"
+family = "GohuFont"
 
 [font.normal]
-family = "GohuFont uni14 Nerd Font Mono"
+family = "GohuFont"
 
 [[mouse.bindings]]
 action = "PasteSelection"

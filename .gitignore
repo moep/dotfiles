@@ -22,6 +22,8 @@
 !/.config/i3status/**
 !/.config/jrnl/
 !/.config/jrnl/**
+!/.config/kitty/
+!/.config/kitty/**
 !/.config/nb/
 !/.config/nb/**
 !/.config/npm/
