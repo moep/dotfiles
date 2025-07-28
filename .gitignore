@@ -53,6 +53,8 @@
 !/.config/waybar/**
 !/.config/xsettingsd/
 !/.config/xsettingsd/*
+!/.config/zk/
+!/.config/zk/*
 !/.gitconfig
 !.gitignore
 !/.inputrc

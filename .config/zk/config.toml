@@ -1,0 +1,45 @@
+[notebook]
+dir = "~/.local/share/zk"
+
+[note]
+langauge="de"
+default-title="TODO title"
+#filename="{{format-date now 'timestamp'}}"
+filename="{{slug title}}"
+extension="md"
+template="~/.config/zk/template.md"
+exclude=["assets/**"]
+id-charset="hex"
+id-length=8
+id-case="lower"
+
+[extra]
+
+[group.log]
+paths = ["log/**"]
+
+[group.log.note]
+filename="{{format-date now 'timestamp'}}"
+#template="~/.config/zk/template.md"
+#template="~/.config/zk/log.md"
+
+[format.markdown]
+hashtags=true
+colon-tags=false
+multiword-tags=true
+link-format="markdown"
+
+
+[tool]
+editor="nvim"
+shell="/usr/bin/bash"
+pager="less -FIRX"
+fzf-preview="glow -p"
+
+[filter]
+recent="--sort created --created=after 'last two weeks'"
+
+[lsp]
+[lsp.diagnostics]
+wiki-title = "hint"
+dead-link = "error"
