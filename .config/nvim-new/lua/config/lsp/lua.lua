@@ -1,4 +1,3 @@
-vim.notify('hello from lua/config/lsp/lua.lua', vim.log.levels.TRACE)
 -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
 vim.lsp.config.lua = {
   cmd = {

@@ -1,5 +1,3 @@
-vim.notify('hello from lua/config/lsp/init.lua', vim.log.levels.TRACE)
-
 vim.lsp.set_log_level('WARN')
 
 -- vim.diagnostic.show() / hide()
