@@ -59,7 +59,8 @@ vim.opt.foldexpr = 'vim.treesitter#foldexpr()'
 vim.opt.cursorline = true
 
 -- prevent the built-in vim.lsp.completion autotrigger from selecting the first item
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
+-- vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.opt.completeopt = { "menuone", "noselect", "fuzzy", "nosort" }
 
 -- vim.opt.winborder = 'none'
 
@@ -85,7 +86,15 @@ vim.opt.cursorline = true
 -- vim.opt.cursorcolumn = false
 
 -- color scheme
-vim.g.sonokai_style = 'atlantis'
 vim.go.bg = 'dark'
-vim.cmd.colorscheme('sonokai')
+-- vim.g.sonokai_style = 'atlantis'
+-- vim.cmd.colorscheme('sonokai')
+
+-- TODO check if termguicolors supported and change color theme accordingly?
+--      or create a seperate config
+vim.o.termguicolors = true
+require('silkcircuit').setup({
+  variant = 'glow',
+})
+vim.cmd.colorscheme('silkcircuit')
 

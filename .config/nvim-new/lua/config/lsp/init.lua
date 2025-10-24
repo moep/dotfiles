@@ -81,3 +81,6 @@ vim.lsp.enable('bash')
 
 require('config.lsp.c')
 vim.lsp.enable('clangd')
+
+require('config.lsp.go')
+vim.lsp.enable('go')

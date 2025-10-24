@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+#
+# Calls git log to produce a specific output that is processable
+# via a specific awk script resulting in a better (human) readable git tree.
+#
+
+DOTFILES_LIB_PATH="${HOME}/.local/lib/dotfiles"
+
+main() {
+  git log --format='{xxx}%h{xxx}%D{xxx}%s{xxx}%cr{xxx}%cn' --graph --color=always "$@" \
+    | awk -f "${DOTFILES_LIB_PATH}/decorate_git_log.awk" \
+    | less -rFX
+}
+
+main "$@"

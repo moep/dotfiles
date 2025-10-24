@@ -29,12 +29,16 @@ vim.loader.enable()
 vim.pack.add({
   -- color scheme
   { src = 'https://github.com/sainnhe/sonokai' },
+  { src = 'https://github.com/hyperb1iss/silkcircuit-nvim' },
 
   -- faster find navigation
   { src = 'https://github.com/folke/flash.nvim' },
 
   -- only used for picker
   { src = 'https://github.com/folke/snacks.nvim' },
+
+  -- used for completion
+  { src = 'https://github.com/echasnovski/mini.nvim' },
 
   -- tmp
   -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter' }
@@ -51,23 +55,30 @@ require('config.lsp')
 require('config.keybinds')
 
 -- plugin under local development
-vim.opt.runtimepath:prepend('/home/moep/code/nvim/nbish.nvim/')
-require('nbish.types')
+-- vim.opt.runtimepath:prepend('/home/moep/code/nvim/nbish.nvim/')
+-- require('nbish.types')
+--
+-- ---@type nbishConfig
+-- vim.g.nbish_config = {
+--   nb_root = '~/.local/share/nb2'
+-- }
+-- require('nbish')
 
----@type nbishConfig
-vim.g.nbish_config = {
-  nb_root = '~/.local/share/nb2'
-}
-require('nbish')
 
--- vim.treesitter.language.register('xxx', { 'md2' })
--- vim.treesitter.language.add('xxx', { 'xxx.so' })
+-- other plugins
+require('snacks').setup({
+    picker = { enabled = true },
+})
 
+require('mini.completion').setup({})
+
+-- for debugging purposes
 vim.keymap.set('n', '<leader>a', function()
   vim.notify('reload', vim.log.levels.INFO)
   vim.cmd('source init.lua')
   -- vim.cmd('restart')
 end)
+
 vim.keymap.set('n', '<leader>b', '<plug>(foo)')
 vim.keymap.set('n', '<leader>,', function()
   local bufopt = {
@@ -85,9 +96,3 @@ vim.keymap.set('n', '<leader>,', function()
   vim.fn.bufload(buffer_id)
 end)
 
--- other plugins
-require('config.flash')
-
-require('snacks').setup({
-    picker = { enabled = true },
-})
