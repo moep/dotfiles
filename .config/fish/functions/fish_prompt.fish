@@ -9,11 +9,11 @@ set -g __fish_git_prompt_char_upstream_ahead "↑"
 set -g __fish_git_prompt_char_upstream_behind "↓"
 set -g __fish_git_prompt_char_upstream_prefix ""
 
-set -g __fish_git_prompt_color_dirtystate brblack -b cyan
-set -g __fish_git_prompt_color_stagedstate brblack -b yellow
-set -g __fish_git_prompt_color_invalidstate brblack -b red
-set -g __fish_git_prompt_color_untrackedfiles brblack -b cyan 
-set -g __fish_git_prompt_color_cleanstate brblack -b green 
+set -g __fish_git_prompt_color_dirtystate black -b cyan
+set -g __fish_git_prompt_color_stagedstate black -b yellow
+set -g __fish_git_prompt_color_invalidstate black -b red
+set -g __fish_git_prompt_color_untrackedfiles black -b cyan 
+set -g __fish_git_prompt_color_cleanstate black -b green 
 
 set -g __fish_git_prompt_char_dirtystate "*"
 set -g __fish_git_prompt_char_invalidstate "#" 
