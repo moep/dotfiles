@@ -87,14 +87,14 @@ vim.opt.cursorline = true
 
 -- color scheme
 vim.go.bg = 'dark'
--- vim.g.sonokai_style = 'atlantis'
--- vim.cmd.colorscheme('sonokai')
+vim.g.sonokai_style = 'atlantis'
+vim.cmd.colorscheme('sonokai')
 
 -- TODO check if termguicolors supported and change color theme accordingly?
 --      or create a seperate config
-vim.o.termguicolors = true
-require('silkcircuit').setup({
-  variant = 'glow',
-})
-vim.cmd.colorscheme('silkcircuit')
+-- vim.o.termguicolors = true
+-- require('silkcircuit').setup({
+--   variant = 'glow',
+-- })
+-- vim.cmd.colorscheme('silkcircuit')
 

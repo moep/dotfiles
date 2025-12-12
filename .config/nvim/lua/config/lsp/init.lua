@@ -1,4 +1,4 @@
-vim.lsp.set_log_level('WARN')
+vim.lsp.log.set_level('WARN')
 
 -- vim.diagnostic.show() / hide()
 vim.diagnostic.config({

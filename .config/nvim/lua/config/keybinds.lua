@@ -35,7 +35,7 @@ vim.keymap.set('n', '<leader>sdd', function() Snacks.picker.diagnostics() end)
 vim.keymap.set('n', '<leader>sdD', function() Snacks.picker.diagnostics_buffer() end)
 vim.keymap.set('n', '<leader>so', function() Snacks.picker.lsp_symbols() end)
 vim.keymap.set('n', '<leader>sO', function() Snacks.picker.lsp_workspace_symbols() end)
-vim.keymap.set('n', '<leader>st', function() Snacks.picker.explorer() end)
+vim.keymap.set('n', 'T', function() Snacks.picker.explorer() end)
 
 --
 -- flash.nvim
