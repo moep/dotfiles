@@ -8,7 +8,7 @@ vim.g.localleader = ','
 -- (might be ignored by custom statusline implementation)
 -- vim.opt.ruler = true
 -- vim.opt.laststatus = 2
--- vim.o.showmode = false
+vim.o.showmode = false
 
 -- Don"t parse last lines for vim commands
 vim.opt.modelines = 0
@@ -89,6 +89,8 @@ vim.opt.cursorline = true
 vim.go.bg = 'dark'
 vim.g.sonokai_style = 'atlantis'
 vim.cmd.colorscheme('sonokai')
+-- adds custom highlight groups
+vim.cmd.colorscheme('moep')
 
 -- TODO check if termguicolors supported and change color theme accordingly?
 --      or create a seperate config

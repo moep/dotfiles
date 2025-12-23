@@ -33,6 +33,8 @@
 !/.config/nvim/
 !/.config/nvim/init.lua
 !/.config/nvim/init.vim 
+!/.config/nvim/colors/
+!/.config/nvim/colors/**
 !/.config/nvim/lua/
 !/.config/nvim/lua/**
 !/.config/nvim/init.lua
