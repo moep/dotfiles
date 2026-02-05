@@ -1,6 +1,5 @@
-print('hello from colors/moep.lua mode: ' .. vim.go.bg)
+-- print('hello from colors/moep.lua mode: ' .. vim.go.bg)
 -- custom highlights
--- TODO move to seperate file
 local gray = '#999999'
 
 vim.api.nvim_set_hl(0, 'moep.mode.normal', { fg = '#ffffff', bg = '#222222' })

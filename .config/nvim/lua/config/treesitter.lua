@@ -1,7 +1,14 @@
-vim.api.nvim_create_autocmd("filetype", {
+vim.api.nvim_create_autocmd('FileType', {
+  -- pattern = { '*.c', '*.h', '*.go', '*.lua', '*.sh', '*.bash' },
   callback = function(event)
     print('Starting treesitter for buffer ' .. event.buf)
-    pcall(vim.treesitter.start, event.buf)
+    local success, _ = pcall(vim.treesitter.start, event.buf)
+
+    if (success) then
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    end
+
   end
 })
 

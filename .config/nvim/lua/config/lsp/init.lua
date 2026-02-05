@@ -37,10 +37,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client == nil then return end
 
-    vim.b.foldmethod = 'expr'
-    vim.b.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    vim.b.signcolumn = 'auto:1'
 
-    --print('attached client with id ' .. event.data.client_id)
+    print('attached client with id ' .. event.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, event.buf, {
         autotrigger = true,

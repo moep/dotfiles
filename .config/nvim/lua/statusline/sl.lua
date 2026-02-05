@@ -67,7 +67,7 @@ end
 local function get_file_info()
   local flags = {}
 
-  if vim.bo.fileencoding ~= 'utf-8' then
+  if vim.bo.fileencoding ~= 'utf-8' and vim.bo.fileencoding ~= '' then
     table.insert(flags, vim.bo.fileencoding)
   end
 

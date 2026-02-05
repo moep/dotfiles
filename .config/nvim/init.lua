@@ -54,6 +54,7 @@ require('config.user')
 require('statusline')
 require('config.lsp')
 require('config.keybinds')
+require('config.treesitter')
 
 -- plugin under local development
 -- vim.opt.runtimepath:prepend('/home/moep/code/nvim/nbish.nvim/')
