@@ -51,6 +51,8 @@
 !/.config/ranger/rc.conf 
 !/.config/rofi/
 !/.config/rofi/**
+!/.config/swayimg/
+!/.config/swayimg/**
 !/.config/tmux/
 !/.config/tmux/**
 !/.config/waybar/
