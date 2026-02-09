@@ -42,6 +42,10 @@
 !/.config/nvim/ftplugin/
 !/.config/nvim/ftplugin/**
 !/.config/nvim-old/
+!/.config/nvim-notes/
+!/.config/nvim-notes/**
+!/.config/nvim-notes/lua/
+!/.config/nvim-notes/lua/**
 !/.config/nvim-old/lua/
 !/.config/nvim-old/lua/**
 #!/.config/nvim/pack/

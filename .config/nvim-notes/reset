@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf ~/.local/cache/nvim-notes
+rm -rf ~/.local/share/nvim-notes
+rm -rf ~/.local/state/nvim-notes
