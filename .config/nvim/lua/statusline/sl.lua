@@ -1,4 +1,13 @@
-vim.notify('hello from lua/statusline.lua', vim.log.levels.TRACE)
+local function log_d(message)
+  vim.notify('[sl] ' .. message, vim.log.levels.DEBUG)
+end
+
+
+local function log_t(message)
+  vim.notify('[sl] ' .. message, vim.log.levels.TRACE)
+end
+log_t('hello from lua/statusline.lua')
+
 local M = {}
 
 local MODES = {
@@ -22,6 +31,7 @@ local MODES = {
   ['!'] = '%#moep.mode.prompt# s> %*',
   ['t'] = '%#moep.mode.prompt# t> %*',
 }
+
 --- file path relative to current dir
 --- see :h filename-modifiers
 --- TODO refactor to function and add colors

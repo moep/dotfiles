@@ -10,51 +10,55 @@
 --
 --vim.loader.enable()
 
+-- type definitions ------------------------------------------------------------
+
+---@alias moepconf.mode 'default' | 'notes'
+
+-- helper functions ------------------------------------------------------------ 
+
+---Debug log
+---@param message string The message to log
+local function log_d(message)
+  vim.notify('[init] ' .. message, vim.log.levels.DEBUG)
+end
+
+-- custom modes ----------------------------------------------------------------
+
+--- @type moepconf.mode
+vim.g.nvim_mode = vim.env.NVIM_MODE or 'default'
+log_d('nvim mode: ' .. vim.g.nvim_mode)
+
+-- better message handling -----------------------------------------------------
+
 -- EXPERIMENTAL!
 -- Removes 'Press ENTER or type command to continue'
 -- Use g< or :mess to show messages
--- require('vim._extui').enable({
---   enable = true,
---   msg = {
---     ---@type 'cmd'|'msg'
---     target = 'cmd',
---     timeout = 3000, -- Time a message is visible in the message window.
---   },
--- })
-
-
---
--- 3rd party plugins
---
-vim.pack.add({
-  -- color scheme
-  { src = 'https://github.com/sainnhe/sonokai' },
-  { src = 'https://github.com/hyperb1iss/silkcircuit-nvim' },
-  { src = 'https://github.com/NLKNguyen/papercolor-theme' },
-
-  -- faster find navigation
-  { src = 'https://github.com/folke/flash.nvim' },
-
-  -- only used for picker
-  { src = 'https://github.com/folke/snacks.nvim' },
-
-  -- used for completion
-  { src = 'https://github.com/echasnovski/mini.nvim' },
-
-  -- tmp
-  -- { src = 'https://github.com/nvim-treesitter/nvim-treesitter' }
+require('vim._core.ui2').enable({
+  enable = true,
+  msg = {
+    ---@type 'cmd'|'msg'
+    target = 'cmd',
+    timeout = 3000, -- Time a message is visible in the message window.
+  },
 })
 
+-- 3rd party plugins -----------------------------------------------------------
 
--- 
--- diy 
---
-require('config.user')
--- TODO https://gist.github.com/emersonfbarros/041578c0419a5e186820365266b3d094
-require('statusline')
+require('config.plugins')
+
+-- user config ----------------------------------------------------------------- 
+
+require('config.common')
 require('config.lsp')
 require('config.keybinds')
 require('config.treesitter')
+
+if vim.g.nvim_mode == 'notes' then
+  require('config.notes')
+end
+
+-- diy statusline
+require('statusline')
 
 -- plugin under local development
 -- vim.opt.runtimepath:prepend('/home/moep/code/nvim/nbish.nvim/')
@@ -67,38 +71,28 @@ require('config.treesitter')
 -- require('nbish')
 
 
--- other plugins
-require('snacks').setup({
-    picker = { enabled = true },
-})
+-- other plugins ---------------------------------------------------------------
 
 require('mini.completion').setup({})
 
--- for debugging purposes
-vim.keymap.set('n', '<leader>a', function()
-  vim.notify('reload', vim.log.levels.INFO)
-  vim.cmd('source init.lua')
-  -- vim.cmd('restart')
-end)
+-- playground ------------------------------------------------------------------
 
-vim.keymap.set('n', '<leader>b', '<plug>(foo)')
-vim.keymap.set('n', '<leader>,', function()
-  local bufopt = {
-    listed = true,
-    hidden = true,
-  }
+-- vim.keymap.set('n', '<leader>b', '<plug>(foo)')
 
-  local api = vim.api
-  local file_name = vim.fs.normalize('~/test.txt')
-  vim.notify('created buffer: ' .. file_name, vim.log.levels.INFO)
-  local buffer_id = api.nvim_create_buf(bufopt.listed, bufopt.hidden)
-  api.nvim_set_option_value('buftype', nil, { buf = buffer_id })
+-- vim.keymap.set('n', '<leader>,', function()
+--   local bufopt = {
+--     listed = true,
+--     hidden = true,
+--   }
+--
+--   local api = vim.api
+--   local file_name = vim.fs.normalize('~/test.txt')
+--   vim.notify('created buffer: ' .. file_name, vim.log.levels.INFO)
+--   local buffer_id = api.nvim_create_buf(bufopt.listed, bufopt.hidden)
+--   api.nvim_set_option_value('buftype', nil, { buf = buffer_id })
+--
+--   api.nvim_buf_set_name(buffer_id, file_name)
+--   vim.fn.bufload(buffer_id)
+-- end)
 
-  api.nvim_buf_set_name(buffer_id, file_name)
-  vim.fn.bufload(buffer_id)
-end)
-
--- TODO luaify
-vim.cmd([[au FileType snacks_picker_input lua vim.b.minicompletion_disable = true]])
-
-
+log_d('initialization for mode ' .. vim.g.nvim_mode .. ' finished')

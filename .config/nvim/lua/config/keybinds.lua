@@ -1,8 +1,8 @@
--- LSP
+-- LSP -------------------------------------------------------------------------
 vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end)
--- Snacks Picker
---
+vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'goto definition' })
 
+-- snacks picker ---------------------------------------------------------------
 vim.keymap.set('n', '<leader>sP', function() Snacks.picker.smart() end)
 vim.keymap.set('n', '<leader>sp', function()
   Snacks.picker.files(
@@ -38,8 +38,6 @@ vim.keymap.set('n', '<leader>so', function() Snacks.picker.lsp_symbols() end)
 vim.keymap.set('n', '<leader>sO', function() Snacks.picker.lsp_workspace_symbols() end)
 vim.keymap.set('n', 'T', function() Snacks.picker.explorer() end)
 
---
--- flash.nvim
---
+-- flash.nvim ------------------------------------------------------------------
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function() require('flash').jump() end)
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', function() require('flash').treesitter() end)

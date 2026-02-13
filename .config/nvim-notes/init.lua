@@ -89,6 +89,10 @@ require('render-markdown').setup({
     -- min_width = 80,
   },
 
+  bullet = {
+    left_pad = 2,
+  },
+
   code = {
     position = 'left',
     width = 'block',
@@ -99,6 +103,9 @@ require('render-markdown').setup({
 
   checkbox = {
     checked = { scope_highlight = '@markup.strikethrough' },
+    custom = {
+      moep = { raw = '[m]', rendered = 'xx ', left_pad = 2 },
+    },
   },
 
   callout = {
@@ -150,7 +157,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.b.signcolumn = 'auto:1'
 
-    print('attached client with id ' .. event.data.client_id)
+    -- print('attached client with id ' .. event.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, event.buf, {
         autotrigger = true,
@@ -181,3 +188,7 @@ end, { desc = 'goto definition' })
 vim.keymap.set('n', '<leader>mm', function()
   require('render-markdown').buf_toggle()
 end, { desc = 'goto definition' })
+
+vim.keymap.set('n', '<leader>,', function() 
+  vim.api.nvim_feedkeys('2Gz<cr>', 'n', true);
+end)

@@ -55,7 +55,7 @@ vim.opt.foldenable = true
 -- vim.opt.foldexpr = 'vim.treesitter#foldexpr()'
 -- use :mkview :loadview to save folds
 -- vim.opt.foldmethod = 'manual'
-vim.opt.foldcolumn = '2'
+vim.opt.foldcolumn = '0'
 vim.opt.foldtext = ''
 -- open all folds by default
 vim.opt.foldlevel = 99

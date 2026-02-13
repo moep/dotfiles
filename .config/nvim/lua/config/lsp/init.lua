@@ -1,5 +1,9 @@
 vim.lsp.log.set_level('WARN')
 
+local function log_d(message)
+  vim.notify('[lsp] ' .. message, vim.log.levels.DEBUG)
+end
+
 -- vim.diagnostic.show() / hide()
 vim.diagnostic.config({
   virtual_text = {
@@ -39,7 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.b.signcolumn = 'auto:1'
 
-    print('attached client with id ' .. event.data.client_id)
+    log_d('attached client with id ' .. event.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(true, client.id, event.buf, {
         autotrigger = true,
@@ -72,14 +76,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- language specific LSP configs
 --
 
-require('config.lsp.lua')
-vim.lsp.enable('lua')
+if vim.g.nvim_mode == 'default' then
+  log_d('configuring for default mode')
+  require('config.lsp.lua')
+  vim.lsp.enable('lua')
 
-require('config.lsp.bash')
-vim.lsp.enable('bash')
+  require('config.lsp.bash')
+  vim.lsp.enable('bash')
 
-require('config.lsp.c')
-vim.lsp.enable('clangd')
+  require('config.lsp.c')
+  vim.lsp.enable('clangd')
 
-require('config.lsp.go')
-vim.lsp.enable('go')
+  require('config.lsp.go')
+  vim.lsp.enable('go')
+end
+
+if vim.g.nvim_mode == 'notes' then
+  require('config.lsp.markdown')
+  vim.lsp.enable('markdown')
+end
+
