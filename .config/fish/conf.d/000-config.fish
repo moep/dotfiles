@@ -19,16 +19,16 @@ set -gx LS_COLORS (cat {$__fish_config_dir}/data/lscolors)
 
 # Manpage colors
 # blink
-set -gx LESS_TERMCAP_mb '[1;33m'
+set -gx LESS_TERMCAP_mb \e'[1;33m'
 # bold
-set -gx LESS_TERMCAP_md '[38;5;15m'
-set -gx LESS_TERMCAP_me '[38;5;254m'
+set -gx LESS_TERMCAP_md \e'[1;38;5;81m'
+set -gx LESS_TERMCAP_me \e'[38;5;254m'
 # standout
-set -gx LESS_TERMCAP_so '[01;33m'
-set -gx LESS_TERMCAP_se '[38;5;254m'
+set -gx LESS_TERMCAP_so \e'[1;38;5;230m'
+set -gx LESS_TERMCAP_se \e'[38;5;254m'
 # underline
-set -gx LESS_TERMCAP_us '[1;4;38;5;15m'
-set -gx LESS_TERMCAP_ue '[0;38;5;254m'
+set -gx LESS_TERMCAP_us \e'[1;4;38;5;230m'
+set -gx LESS_TERMCAP_ue \e'[0;38;5;254m'
 
 # Supress echo on Control+Insert
 # (Should be handled via .inputrc but it isn't)

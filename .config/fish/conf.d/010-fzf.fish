@@ -22,11 +22,11 @@ bind \cg\cs '__fzf_git_status'
 # Options
 set -e FZF_DEFAULT_OPTS
 set -g FZF_DEFAULT_OPTS --height 100% --layout reverse
-set -g FZF_DEFAULT_OPTS --pointer='?' --marker='!'
-set -g FZF_DEFAULT_OPTS $FZF_DEFAULT_KEYBINDS
-set -g FZF_DEFAULT_OPTS --info inline-right
+set -ag FZF_DEFAULT_OPTS --pointer='?' --marker='!'
+set -ag FZF_DEFAULT_OPTS $FZF_DEFAULT_KEYBINDS
+set -ag FZF_DEFAULT_OPTS --info inline-right
 # TODO make dynamic for non UTF-8 capable terminals
-set -g FZF_DEFAULT_OPTS --scrollbar='┃'
+set -ag FZF_DEFAULT_OPTS --scrollbar='┃'
 
 function addColor
   set -l name "$argv[1]"
