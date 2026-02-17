@@ -1,5 +1,5 @@
 local function log_d(message)
-  vim.notify('[treesitter] ' .. message)
+  vim.api.nvim_echo({{'[treesitter] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 vim.api.nvim_create_augroup('moep', { clear = true })

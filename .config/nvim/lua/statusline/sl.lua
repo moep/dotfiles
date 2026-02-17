@@ -1,5 +1,5 @@
 local function log_d(message)
-  vim.notify('[sl] ' .. message, vim.log.levels.DEBUG)
+  vim.api.nvim_echo({{'[sl] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 

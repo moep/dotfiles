@@ -2,7 +2,7 @@
 
 ---@param message string The message to log
 local function log_d(message)
-  vim.notify('[notes] ' .. message, vim.log.levels.DEBUG)
+  vim.api.nvim_echo({{'[notes] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 -- custom notes config ---------------------------------------------------------

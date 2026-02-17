@@ -19,7 +19,8 @@
 ---Debug log
 ---@param message string The message to log
 local function log_d(message)
-  vim.notify('[init] ' .. message, vim.log.levels.DEBUG)
+  -- vim.notify('[init] ' .. message, vim.log.levels.DEBUG)
+  vim.api.nvim_echo({{'[init] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 -- custom modes ----------------------------------------------------------------
@@ -95,4 +96,14 @@ require('mini.completion').setup({})
 --   vim.fn.bufload(buffer_id)
 -- end)
 
-log_d('initialization for mode ' .. vim.g.nvim_mode .. ' finished')
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  desc = 'Scroll to first heading and put it on top',
+  pattern = { '*.md' },
+  callback = function()
+    log_d('buf new')
+    -- vim.cmd('execute "normal! 2Gz\\<cr>"')
+    vim.cmd('execute "normal! /^# \\<cr>z\\<cr>"')
+    vim.cmd.nohlsearch()
+  end,
+})

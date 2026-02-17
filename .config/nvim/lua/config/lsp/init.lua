@@ -1,7 +1,7 @@
 vim.lsp.log.set_level('WARN')
 
 local function log_d(message)
-  vim.notify('[lsp] ' .. message, vim.log.levels.DEBUG)
+  vim.api.nvim_echo({{'[lsp] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 -- vim.diagnostic.show() / hide()

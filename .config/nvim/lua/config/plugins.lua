@@ -15,7 +15,7 @@ local plugins = {}
 -- helper functions ------------------------------------------------------------
 
 local function log_d(message)
-  vim.notify('[plugins] ' .. message, vim.log.levels.DEBUG)
+  vim.api.nvim_echo({{'[plugins] ', '@comment'}, {message, '@comment'}}, true, {})
 end
 
 -- common plugins --------------------------------------------------------------
