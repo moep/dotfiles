@@ -10,25 +10,6 @@
 --
 --vim.loader.enable()
 
--- type definitions ------------------------------------------------------------
-
----@alias moepconf.mode 'default' | 'notes'
-
--- helper functions ------------------------------------------------------------ 
-
----Debug log
----@param message string The message to log
-local function log_d(message)
-  -- vim.notify('[init] ' .. message, vim.log.levels.DEBUG)
-  vim.api.nvim_echo({{'[init] ', '@comment'}, {message, '@comment'}}, true, {})
-end
-
--- custom modes ----------------------------------------------------------------
-
---- @type moepconf.mode
-vim.g.nvim_mode = vim.env.NVIM_MODE or 'default'
-log_d('nvim mode: ' .. vim.g.nvim_mode)
-
 -- better message handling -----------------------------------------------------
 
 -- EXPERIMENTAL!
@@ -43,9 +24,129 @@ require('vim._core.ui2').enable({
   },
 })
 
+-- mode set --------------------------------------------------------------------
+
+---@diagnostic disable unused
+
+---@alias moepconf.nvim_mode 'default' | 'notes' | 'minimal'
+
+
+---@returns moepconf.nvim_mode
+---@nodiscard
+local function get_mode()
+  -- TODO set mode according to PWD if NVIM_MODE is not set
+  if vim.env.NVIM_MODE == nil or vim.env.NVIM_MODE == '' then
+    return 'default'
+  else
+    return vim.env.NVIM_MODE
+  end
+end
+
+-- Plugin list used for all modes
+---@type moepconf.plugin_name[]
+local plugins = { 'flash.nvim' }
+
+if get_mode() ~= 'minimal' then
+  -- Plugin list for all modes except minimal
+
+  ---@type moepconf.plugin_name[]
+  local plugins_default = { 
+    'mini.nvim',
+    'snacks.nvim',
+    'sonokai',
+
+    -- only used for looking up ts configs
+    --'nvim-treesitter', 
+
+    'koda.nvim',
+    'silentium.nvim',
+    'cobalt.nvim', -- nice blue theme
+    'min-theme.nvim', -- good
+    'witch', -- light theme looks good
+    'oxycarbon.nvim', -- !! dark and bright
+    'zephyr.nvim', -- okayish
+    'edge',
+    'onedark.nvim',
+    'everforest', -- light looks good
+    'kanagawa-paper.nvim', -- too bright; to pale
+    'one_monokai.nvim', -- a little bit darker sonokai
+    'fluormachine.nvim', -- alternative for silkcircuit; comments too pale
+    'deepwhite.nvim', -- good bright
+    'cyberdream.nvim', -- nice contrast
+    'halfspace.nvim', -- oldschool gray; a little pale
+    'bluloco.nvim', -- untested, needs lush
+    'base16-pro-max.nvim', --not a color scheme
+    'thorn.nvim', --green; lacks a little contrast
+
+    -- :colo minischeme
+  }
+
+  for _, value in ipairs(plugins_default) do
+    table.insert(plugins, value)
+  end
+end
+
+if get_mode() == 'notes' then
+  ---@type moepconf.plugin_name[]
+  local plugins_notes = { 
+    'silkcircuit-nvim',
+    -- 'papercolor-theme',
+    'render-markdown.nvim',
+    'mini.icons' 
+  }
+
+  for _, value in ipairs(plugins_notes) do
+    table.insert(plugins, value)
+  end
+end
+
+---@type table<moepconf.nvim_mode, moepconf.colorscheme>
+local color_schemes_for_mode = {
+  ['minimal'] = 'default',
+  ['default'] = 'sonokai',
+  ['notes'] = 'silkcircuit', 
+}
+
+---@type moepconf
+vim.g.moepconf = {
+  colorscheme = color_schemes_for_mode[get_mode()],
+  loglevel = vim.log.levels.TRACE,
+  lsps = { 'lua' },
+  plugins = plugins
+}
+
+
+local log = require('util.logger')
+log.debug('mode: ' .. get_mode())
+log.debug('config: ' .. vim.inspect(vim.g.moepconf))
+
 -- 3rd party plugins -----------------------------------------------------------
 
 require('config.plugins')
+
+-- color schemes tweaking --------------------------------------------------------
+
+-- TODO add to custom lua module?
+vim.o.termguicolors = true
+if vim.g.moepconf.colorscheme == 'sonokai' then
+  vim.go.bg = 'dark'
+  vim.g.sonokai_style = 'atlantis'
+  vim.cmd.colorscheme('sonokai')
+elseif vim.g.moepconf.colorscheme == 'silkcircuit' then
+  -- TODO check if termguicolors supported and change color theme accordingly?
+  --      or create a seperate config
+  require('silkcircuit').setup({
+    ---@type 'neon' | 'vibrant' | 'soft' | 'glow'
+    variant = 'glow',
+  })
+  vim.cmd.colorscheme('silkcircuit')
+else
+  vim.cmd.colorscheme(vim.g.moepconf.colorscheme)
+end
+
+-- add highlight groups for my custom status line script
+-- TODO should be part of sl.lua?
+vim.cmd.colorscheme('moep')
 
 -- user config ----------------------------------------------------------------- 
 
@@ -71,9 +172,9 @@ require('statusline')
 -- }
 -- require('nbish')
 
-
 -- other plugins ---------------------------------------------------------------
 
+-- TODO move to config/plugins/mini.lua
 require('mini.completion').setup({})
 
 -- playground ------------------------------------------------------------------
@@ -97,13 +198,15 @@ require('mini.completion').setup({})
 -- end)
 
 
-vim.api.nvim_create_autocmd({ 'BufRead' }, {
+vim.api.nvim_create_autocmd('BufRead', {
   desc = 'Scroll to first heading and put it on top',
   pattern = { '*.md' },
   callback = function()
-    log_d('buf new')
+    log.debug('buf new')
     -- vim.cmd('execute "normal! 2Gz\\<cr>"')
     vim.cmd('execute "normal! /^# \\<cr>z\\<cr>"')
     vim.cmd.nohlsearch()
   end,
 })
+
+log.info('initialized')

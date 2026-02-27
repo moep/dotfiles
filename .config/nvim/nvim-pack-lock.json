@@ -1,32 +1,92 @@
 {
   "plugins": {
+    "base16-pro-max.nvim": {
+      "rev": "dcb683467f76c42644bb3d8ead9fe0cbfe10560d",
+      "src": "https://github.com/y3owk1n/base16-pro-max.nvim"
+    },
+    "bluloco.nvim": {
+      "rev": "ca548a50c1c9ccbb3f730c6144a55d48017a07c6",
+      "src": "https://github.com/uloco/bluloco.nvim"
+    },
+    "cobalt.nvim": {
+      "rev": "f1cc8cded172720d076a5505304b6817b7fb6ccd",
+      "src": "https://github.com/wurli/cobalt.nvim"
+    },
+    "cyberdream.nvim": {
+      "rev": "a68ffa6af98bf1fc88f33a071c51a188ec85c725",
+      "src": "https://github.com/scottmckendry/cyberdream.nvim"
+    },
+    "deepwhite.nvim": {
+      "rev": "ccad56bb5eb7d29258980cfc0a716eb87bcad69e",
+      "src": "https://github.com/Verf/deepwhite.nvim"
+    },
+    "edge": {
+      "rev": "7ec78c21bd8f0b2b0b47043bb1e730c561647c72",
+      "src": "https://github.com/sainnhe/edge"
+    },
+    "everforest": {
+      "rev": "b03a03148c8b34c24c96960b93da9c8883d11f54",
+      "src": "https://github.com/sainnhe/everforest"
+    },
     "flash.nvim": {
       "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
       "src": "https://github.com/folke/flash.nvim"
     },
+    "fluoromachine.nvim": {
+      "rev": "a279f667168e742df059caf1f1f4daf1de24f4f8",
+      "src": "https://github.com/maxmx03/fluoromachine.nvim"
+    },
+    "halfspace.nvim": {
+      "rev": "23b367771f694479771735150311d41830133f95",
+      "src": "https://gitlab.com/sxwpb/halfspace.nvim"
+    },
+    "kanagawa-paper.nvim": {
+      "rev": "ccd5f727919bfe93af76561c31f43b53cd2871db",
+      "src": "https://github.com/thesimonho/kanagawa-paper.nvim"
+    },
+    "koda.nvim": {
+      "rev": "c94415d9c63c1519216fe195ae957974e7e3250c",
+      "src": "https://github.com/oskarnurm/koda.nvim"
+    },
+    "min-theme.nvim": {
+      "rev": "29fe6f031202619e6285789f47ce37ead5165b8d",
+      "src": "https://github.com/datsfilipe/min-theme.nvim"
+    },
     "mini.icons": {
-      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
+      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
-      "rev": "e5a9a3830f9c37211df4c82cac45bf728b95739d",
+      "rev": "577d2dcb558efce1518c45a76345e01bf346c8e8",
       "src": "https://github.com/echasnovski/mini.nvim"
+    },
+    "one_monokai.nvim": {
+      "rev": "047a0239831458866945d5c2d111ff1d282d1966",
+      "src": "https://github.com/cpea2506/one_monokai.nvim"
+    },
+    "onedark.nvim": {
+      "rev": "213c23ae45a04797572242568d5d51937181792d",
+      "src": "https://github.com/navarasu/onedark.nvim"
+    },
+    "oxocarbon.nvim": {
+      "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "papercolor-theme": {
       "rev": "0cfe64ffb24c21a6101b5f994ca342a74c977aef",
       "src": "https://github.com/NLKNguyen/papercolor-theme"
     },
     "render-markdown.nvim": {
-      "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
+      "rev": "1c958131c083c8557ea499fdb08c88b8afb05c4e",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "silentium.nvim": {
+      "rev": "d0a53f1d87b395ad2f6c4398d558aa3758b8fa4a",
+      "src": "https://github.com/silentium-theme/silentium.nvim"
     },
     "silkcircuit-nvim": {
       "rev": "c6711f8ecdf75d8efb2da0317c4a291522343203",
       "src": "https://github.com/hyperb1iss/silkcircuit-nvim"
-    },
-    "snacks": {
-      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
-      "src": "https://github.com/folke/snacks.nvim"
     },
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
@@ -35,6 +95,18 @@
     "sonokai": {
       "rev": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3",
       "src": "https://github.com/sainnhe/sonokai"
+    },
+    "thorn.nvim": {
+      "rev": "d3e6e7ef07bb09a9197e14bc54662a66e88d0c83",
+      "src": "https://github.com/jpwol/thorn.nvim"
+    },
+    "witch": {
+      "rev": "b943dd5397b7fd0216d7143f16a3a202ff64b5d3",
+      "src": "https://github.com/sontungexpt/witch"
+    },
+    "zephyr-nvim": {
+      "rev": "7fd86b7164442d3b5ec2c81b2694d040e716b5cf",
+      "src": "https://github.com/nvimdev/zephyr-nvim"
     }
   }
 }

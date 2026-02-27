@@ -1,7 +1,10 @@
 vim.lsp.log.set_level('WARN')
 
+local log = require('util.logger')
+
+---@param message string
 local function log_d(message)
-  vim.api.nvim_echo({{'[lsp] ', '@comment'}, {message, '@comment'}}, true, {})
+  log.debug(message, 'lsp')
 end
 
 -- vim.diagnostic.show() / hide()
@@ -62,37 +65,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- TODO BufEnter for each file (ftplugin/)
--- vim.api.nvim_create_autocmd('UiEnter', {
---   group = LSP_GROUP,
---   callback = function()
---     print('starting treesitter')
---     vim.treesitter.start()
---   end
--- })
-
 
 --
 -- language specific LSP configs
 --
 
-if vim.g.nvim_mode == 'default' then
-  log_d('configuring for default mode')
-  require('config.lsp.lua')
-  vim.lsp.enable('lua')
-
-  require('config.lsp.bash')
-  vim.lsp.enable('bash')
-
-  require('config.lsp.c')
-  vim.lsp.enable('clangd')
-
-  require('config.lsp.go')
-  vim.lsp.enable('go')
+for _, lsp in ipairs(vim.g.moepconf.lsps) do
+  log_d('activating lsp: ' .. lsp)
+  require('config.lsp.' .. lsp)
+  vim.lsp.enable(lsp)
 end
 
-if vim.g.nvim_mode == 'notes' then
-  require('config.lsp.markdown')
-  vim.lsp.enable('markdown')
-end
-
+-- if vim.g.nvim_mode == 'default' then
+--   logger.debug('configuring for default mode')
+--   require('config.lsp.lua')
+--   vim.lsp.enable('lua')
+--
+--   require('config.lsp.bash')
+--   vim.lsp.enable('bash')
+--
+--   require('config.lsp.c')
+--   vim.lsp.enable('clangd')
+--
+--   require('config.lsp.go')
+--   vim.lsp.enable('go')
+-- end
+--
+-- if vim.g.nvim_mode == 'notes' then
+--   require('config.lsp.markdown')
+--   vim.lsp.enable('markdown')
+-- end
+--

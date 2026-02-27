@@ -1,13 +1,3 @@
-local function log_d(message)
-  vim.api.nvim_echo({{'[sl] ', '@comment'}, {message, '@comment'}}, true, {})
-end
-
-
-local function log_t(message)
-  vim.notify('[sl] ' .. message, vim.log.levels.TRACE)
-end
-log_t('hello from lua/statusline.lua')
-
 local M = {}
 
 local MODES = {
@@ -36,6 +26,7 @@ local MODES = {
 --- see :h filename-modifiers
 --- TODO refactor to function and add colors
 ---@return string
+---@nodiscard
 local function get_file_name()
   local name = vim.fn.expand('%:.:t')
   local prefix = vim.fn.expand('%:.:h')
@@ -51,6 +42,7 @@ local function get_file_name()
 end
 
 ---@return string
+---@nodiscard
 local function get_file_status()
 
   local flags = {}

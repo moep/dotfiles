@@ -90,31 +90,6 @@ vim.o.backupdir = vim.fn.stdpath('data') .. '/backup'
 -- vim.o.inccommand = 'nosplit'
 
 vim.opt.cursorline = true
--- vim.opt.cursorcolumn = false
-
--- color scheme
--- TODO move to own file
-vim.o.termguicolors = true
-
-if vim.g.nvim_mode == 'default' then
-  vim.go.bg = 'dark'
-  vim.g.sonokai_style = 'atlantis'
-  vim.cmd.colorscheme('sonokai')
-end
-
-if vim.g.nvim_mode == 'notes' then
-  -- TODO check if termguicolors supported and change color theme accordingly?
-  --      or create a seperate config
-  require('silkcircuit').setup({
-    ---@type 'neon' | 'vibrant' | 'soft' | 'glow'
-    variant = 'glow',
-  })
-  vim.cmd.colorscheme('silkcircuit')
-end
-
--- add highlight groups for my custom status line script
-vim.cmd.colorscheme('moep')
-
 
 -- User commands ---------------------------------------------------------------
 vim.api.nvim_create_user_command('Scratch', function()

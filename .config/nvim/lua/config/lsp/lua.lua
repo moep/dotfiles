@@ -27,9 +27,9 @@ vim.lsp.config.lua = {
       completion = { callSnippet = 'Replace' },
       telemetry = { enable = false },
       codeLens = { enable = true },
-      -- diagnostics = {
-      --   globals = { 'vim' },
-      -- }
+      diagnostics = {
+        globals = { 'vim' },
+      }
     },
   },
 }
