@@ -1,9 +1,9 @@
 -- helper functions ------------------------------------------------------------ 
 
----@param message string The message to log
-local function log_d(message)
-  vim.api.nvim_echo({{'[notes] ', '@comment'}, {message, '@comment'}}, true, {})
-end
+-----@param message string The message to log
+-- local function log_d(message)
+--   vim.api.nvim_echo({{'[notes] ', '@comment'}, {message, '@comment'}}, true, {})
+-- end
 
 -- custom notes config ---------------------------------------------------------
 

@@ -17,7 +17,10 @@ fish_add_path ~/.local/bin
 #set -gx LS_COLORS (/usr/bin/ls_colors_generator)
 set -gx LS_COLORS (cat {$__fish_config_dir}/data/lscolors)
 
-# Manpage colors
+# Use neovim as man pager
+set -gx MANPAGER 'nvim +Man!'
+
+# Manpage colors (obsolete when using neovim as man pager)
 # blink
 set -gx LESS_TERMCAP_mb \e'[1;33m'
 # bold

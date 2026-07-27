@@ -31,7 +31,7 @@ end
 local plugins = {
   ['flash.nvim'] = { src = 'https://github.com/folke/flash.nvim' },
   ['mini.icons'] = { src = 'https://github.com/nvim-mini/mini.icons' },
-  ['mini.nvim'] = { src = 'https://github.com/echasnovski/mini.nvim' } ,
+  ['mini.nvim'] = { src = 'https://github.com/echasnovski/mini.nvim', data = { setup = require('config.plugins.mini').setup } } ,
   ['nvim-treesitter'] = { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
   ['snacks.nvim'] = {  src = 'https://github.com/folke/snacks.nvim', data = { setup = require('config.plugins.snacks').setup } },
   ['render-markdown.nvim'] = { src = 'https://github.com/MeanderingProgrammer/render-markdown.nvim', data = { setup = require('config.plugins.render_markdown').setup } },
@@ -65,6 +65,7 @@ local plugins = {
   ['bluloco.nvim'] = { src = 'https://github.com/uloco/bluloco.nvim' },
   ['base16-pro-max.nvim'] = { src = 'https://github.com/y3owk1n/base16-pro-max.nvim' },
   ['thorn.nvim'] = { src = 'https://github.com/jpwol/thorn.nvim' },
+  ['NeoCyberVim'] = { src = 'https://github.com/DonJulve/NeoCyberVim' },
 }
 
 -- common plugins --------------------------------------------------------------
@@ -124,9 +125,9 @@ for _, value in ipairs(vim.g.moepconf.plugins) do
   end
 end
 
-local active_plugins = vim.iter(vim.pack.get())
-  :filter(function(x) return x.active end)
-  :map(function(x) return x.spec.name end)
-  :totable()
-
-log_d('active plugins: ' .. vim.inspect(active_plugins))
+-- local active_plugins = vim.iter(vim.pack.get())
+--   :filter(function(x) return x.active end)
+--   :map(function(x) return x.spec.name end)
+--   :totable()
+--
+-- log_d('active plugins: ' .. vim.inspect(active_plugins))

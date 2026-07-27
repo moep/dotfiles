@@ -1,6 +1,7 @@
 -- LSP -------------------------------------------------------------------------
 vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end)
 vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'goto definition' })
+vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.code_action() end, { desc = 'quick fix' })
 
 -- snacks picker ---------------------------------------------------------------
 vim.keymap.set('n', '<leader>sP', function() Snacks.picker.smart() end)
@@ -41,3 +42,8 @@ vim.keymap.set('n', 'T', function() Snacks.picker.explorer() end)
 -- flash.nvim ------------------------------------------------------------------
 vim.keymap.set({ 'n', 'x', 'o' }, 's', function() require('flash').jump() end)
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', function() require('flash').treesitter() end)
+
+-- markview --------------------------------------------------------------------
+if vim.env.NVIM_MODE == 'notes' then
+  vim.keymap.set('n', '<leader>m', function() require('render-markdown').buf_toggle() end)
+end

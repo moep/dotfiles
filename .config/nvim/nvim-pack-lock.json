@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "NeoCyberVim": {
+      "rev": "40e2de86b6415ae6e0ece7f2aeb26e34017dd698",
+      "src": "https://github.com/DonJulve/NeoCyberVim"
+    },
     "base16-pro-max.nvim": {
       "rev": "dcb683467f76c42644bb3d8ead9fe0cbfe10560d",
       "src": "https://github.com/y3owk1n/base16-pro-max.nvim"
@@ -41,11 +45,11 @@
       "src": "https://gitlab.com/sxwpb/halfspace.nvim"
     },
     "kanagawa-paper.nvim": {
-      "rev": "ccd5f727919bfe93af76561c31f43b53cd2871db",
+      "rev": "3a024e8fd7105ee9416aafcdb0a7787be1795d68",
       "src": "https://github.com/thesimonho/kanagawa-paper.nvim"
     },
     "koda.nvim": {
-      "rev": "c94415d9c63c1519216fe195ae957974e7e3250c",
+      "rev": "a560a332ccc1eb2caacb280a390213bb9f37b3cb",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "min-theme.nvim": {
@@ -57,8 +61,12 @@
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
-      "rev": "577d2dcb558efce1518c45a76345e01bf346c8e8",
+      "rev": "3b1b65e1e14cd0bf7b4178b38750f4a733e9d4e0",
       "src": "https://github.com/echasnovski/mini.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "one_monokai.nvim": {
       "rev": "047a0239831458866945d5c2d111ff1d282d1966",
@@ -69,27 +77,23 @@
       "src": "https://github.com/navarasu/onedark.nvim"
     },
     "oxocarbon.nvim": {
-      "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
+      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
-    "papercolor-theme": {
-      "rev": "0cfe64ffb24c21a6101b5f994ca342a74c977aef",
-      "src": "https://github.com/NLKNguyen/papercolor-theme"
-    },
     "render-markdown.nvim": {
-      "rev": "1c958131c083c8557ea499fdb08c88b8afb05c4e",
+      "rev": "e3c18ddd27a853f85a6f513a864cf4f2982b9f26",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "silentium.nvim": {
-      "rev": "d0a53f1d87b395ad2f6c4398d558aa3758b8fa4a",
+      "rev": "bbe83fc2b6507ba1f8f6bd61f876ecfa5143353e",
       "src": "https://github.com/silentium-theme/silentium.nvim"
     },
     "silkcircuit-nvim": {
-      "rev": "c6711f8ecdf75d8efb2da0317c4a291522343203",
+      "rev": "ce25c1d03cc55d65da8f083aad3ac3a0563f432d",
       "src": "https://github.com/hyperb1iss/silkcircuit-nvim"
     },
     "snacks.nvim": {
-      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
+      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "sonokai": {

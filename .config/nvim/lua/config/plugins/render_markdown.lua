@@ -1,10 +1,11 @@
 local M = {}
 
 function M.setup()
+
   require('render-markdown').setup({
     completions = { lsp = { enabled = true } },
 
-    render_modes = { 'n' },
+    -- render_modes = { 'n' },
 
     anti_conceal = {
       enabled = false,
@@ -13,7 +14,7 @@ function M.setup()
     heading = {
       sign = false,
       position = 'inline',
-      width = { 'full', 'full', 'block', 'block' },
+      width = { 'full', 'full', 'block', 'block', 'block' },
       -- min_width = 80,
     },
 
@@ -24,6 +25,9 @@ function M.setup()
     code = {
       position = 'left',
       width = 'block',
+      language_name = false,
+      language_icon = true,
+      language_info = true,
       right_pad = 2,
       left_pad = 2,
       language_border = ' ',
@@ -47,6 +51,8 @@ function M.setup()
       enabled = false,
     },
   })
+
+  -- 
 end
 
 

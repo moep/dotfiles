@@ -44,7 +44,7 @@ end
 
 -- Plugin list used for all modes
 ---@type moepconf.plugin_name[]
-local plugins = { 'flash.nvim' }
+local plugins = { 'flash.nvim', 'koda.nvim' }
 
 if get_mode() ~= 'minimal' then
   -- Plugin list for all modes except minimal
@@ -55,28 +55,28 @@ if get_mode() ~= 'minimal' then
     'snacks.nvim',
     'sonokai',
 
-    -- only used for looking up ts configs
-    --'nvim-treesitter', 
+    'nvim-treesitter', 
 
     'koda.nvim',
-    'silentium.nvim',
-    'cobalt.nvim', -- nice blue theme
-    'min-theme.nvim', -- good
-    'witch', -- light theme looks good
-    'oxycarbon.nvim', -- !! dark and bright
-    'zephyr.nvim', -- okayish
-    'edge',
-    'onedark.nvim',
-    'everforest', -- light looks good
-    'kanagawa-paper.nvim', -- too bright; to pale
-    'one_monokai.nvim', -- a little bit darker sonokai
-    'fluormachine.nvim', -- alternative for silkcircuit; comments too pale
-    'deepwhite.nvim', -- good bright
-    'cyberdream.nvim', -- nice contrast
-    'halfspace.nvim', -- oldschool gray; a little pale
-    'bluloco.nvim', -- untested, needs lush
-    'base16-pro-max.nvim', --not a color scheme
-    'thorn.nvim', --green; lacks a little contrast
+    -- 'silentium.nvim',
+    -- 'cobalt.nvim', -- nice blue theme
+    -- 'min-theme.nvim', -- good
+    -- 'witch', -- light theme looks good
+    -- 'oxycarbon.nvim', -- !! dark and bright
+    -- 'zephyr.nvim', -- okayish
+    -- 'edge',
+    -- 'onedark.nvim',
+    -- 'everforest', -- light looks good
+    -- 'kanagawa-paper.nvim', -- too bright; to pale
+    -- 'one_monokai.nvim', -- a little bit darker sonokai
+    -- 'fluormachine.nvim', -- alternative for silkcircuit; comments too pale
+    -- 'deepwhite.nvim', -- good bright
+    -- 'cyberdream.nvim', -- nice contrast
+    -- 'halfspace.nvim', -- oldschool gray; a little pale
+    -- 'bluloco.nvim', -- untested, needs lush
+    -- 'base16-pro-max.nvim', --not a color scheme
+    -- 'thorn.nvim', --green; lacks a little contrast
+    -- 'NeoCyberVim', -- zu monochrom
 
     -- :colo minischeme
   }
@@ -102,16 +102,23 @@ end
 
 ---@type table<moepconf.nvim_mode, moepconf.colorscheme>
 local color_schemes_for_mode = {
-  ['minimal'] = 'default',
+  ['minimal'] = 'koda-dark',
   ['default'] = 'sonokai',
   ['notes'] = 'silkcircuit', 
+}
+
+---@type table<moepconf.nvim_mode, moepconf.lsp[]>
+local lsps_for_mode = {
+  ['minimal'] = {},
+  ['default'] = { 'lua' },
+  ['notes'] = { 'markdown' },
 }
 
 ---@type moepconf
 vim.g.moepconf = {
   colorscheme = color_schemes_for_mode[get_mode()],
-  loglevel = vim.log.levels.TRACE,
-  lsps = { 'lua' },
+  loglevel = vim.log.levels.INFO,
+  lsps = lsps_for_mode[get_mode()],
   plugins = plugins
 }
 
@@ -140,6 +147,7 @@ elseif vim.g.moepconf.colorscheme == 'silkcircuit' then
     variant = 'glow',
   })
   vim.cmd.colorscheme('silkcircuit')
+  vim.api.nvim_set_hl(0, 'CursorLine', { background = '#66052f' })
 else
   vim.cmd.colorscheme(vim.g.moepconf.colorscheme)
 end
@@ -174,8 +182,6 @@ require('statusline')
 
 -- other plugins ---------------------------------------------------------------
 
--- TODO move to config/plugins/mini.lua
-require('mini.completion').setup({})
 
 -- playground ------------------------------------------------------------------
 
@@ -198,6 +204,7 @@ require('mini.completion').setup({})
 -- end)
 
 
+-- TODO move to markdown / notes
 vim.api.nvim_create_autocmd('BufRead', {
   desc = 'Scroll to first heading and put it on top',
   pattern = { '*.md' },
