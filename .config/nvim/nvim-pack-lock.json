@@ -1,116 +1,29 @@
 {
   "plugins": {
-    "NeoCyberVim": {
-      "rev": "40e2de86b6415ae6e0ece7f2aeb26e34017dd698",
-      "src": "https://github.com/DonJulve/NeoCyberVim"
-    },
-    "base16-pro-max.nvim": {
-      "rev": "dcb683467f76c42644bb3d8ead9fe0cbfe10560d",
-      "src": "https://github.com/y3owk1n/base16-pro-max.nvim"
-    },
-    "bluloco.nvim": {
-      "rev": "ca548a50c1c9ccbb3f730c6144a55d48017a07c6",
-      "src": "https://github.com/uloco/bluloco.nvim"
-    },
-    "cobalt.nvim": {
-      "rev": "f1cc8cded172720d076a5505304b6817b7fb6ccd",
-      "src": "https://github.com/wurli/cobalt.nvim"
-    },
-    "cyberdream.nvim": {
-      "rev": "a68ffa6af98bf1fc88f33a071c51a188ec85c725",
-      "src": "https://github.com/scottmckendry/cyberdream.nvim"
-    },
-    "deepwhite.nvim": {
-      "rev": "ccad56bb5eb7d29258980cfc0a716eb87bcad69e",
-      "src": "https://github.com/Verf/deepwhite.nvim"
-    },
-    "edge": {
-      "rev": "7ec78c21bd8f0b2b0b47043bb1e730c561647c72",
-      "src": "https://github.com/sainnhe/edge"
-    },
-    "everforest": {
-      "rev": "b03a03148c8b34c24c96960b93da9c8883d11f54",
-      "src": "https://github.com/sainnhe/everforest"
-    },
     "flash.nvim": {
-      "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
-      "src": "https://github.com/folke/flash.nvim"
-    },
-    "fluoromachine.nvim": {
-      "rev": "a279f667168e742df059caf1f1f4daf1de24f4f8",
-      "src": "https://github.com/maxmx03/fluoromachine.nvim"
-    },
-    "halfspace.nvim": {
-      "rev": "23b367771f694479771735150311d41830133f95",
-      "src": "https://gitlab.com/sxwpb/halfspace.nvim"
-    },
-    "kanagawa-paper.nvim": {
-      "rev": "3a024e8fd7105ee9416aafcdb0a7787be1795d68",
-      "src": "https://github.com/thesimonho/kanagawa-paper.nvim"
+      "rev": "c92888d432bebeb145dad09c07ab65cc7c577184",
+      "src": "https://github.com/pedro757/flash.nvim",
+      "version": "'fix/neovim-0.13-search-state'"
     },
     "koda.nvim": {
-      "rev": "a560a332ccc1eb2caacb280a390213bb9f37b3cb",
+      "rev": "25a5c98ca2f6bb0b69f5e2654a78f0d7c7e0721d",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
-    "min-theme.nvim": {
-      "rev": "29fe6f031202619e6285789f47ce37ead5165b8d",
-      "src": "https://github.com/datsfilipe/min-theme.nvim"
-    },
-    "mini.icons": {
-      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
-      "src": "https://github.com/nvim-mini/mini.icons"
-    },
     "mini.nvim": {
-      "rev": "3b1b65e1e14cd0bf7b4178b38750f4a733e9d4e0",
+      "rev": "e58ad4b0c9e9376096b9704f98fc00d4c9448870",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "nvim-treesitter": {
-      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "rev": "074aa4422bf029908338e855d0c0f71470a971bb",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
-    "one_monokai.nvim": {
-      "rev": "047a0239831458866945d5c2d111ff1d282d1966",
-      "src": "https://github.com/cpea2506/one_monokai.nvim"
-    },
-    "onedark.nvim": {
-      "rev": "213c23ae45a04797572242568d5d51937181792d",
-      "src": "https://github.com/navarasu/onedark.nvim"
-    },
-    "oxocarbon.nvim": {
-      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
-      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
-    },
-    "render-markdown.nvim": {
-      "rev": "e3c18ddd27a853f85a6f513a864cf4f2982b9f26",
-      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-    },
-    "silentium.nvim": {
-      "rev": "bbe83fc2b6507ba1f8f6bd61f876ecfa5143353e",
-      "src": "https://github.com/silentium-theme/silentium.nvim"
-    },
-    "silkcircuit-nvim": {
-      "rev": "ce25c1d03cc55d65da8f083aad3ac3a0563f432d",
-      "src": "https://github.com/hyperb1iss/silkcircuit-nvim"
-    },
     "snacks.nvim": {
-      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "sonokai": {
       "rev": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3",
       "src": "https://github.com/sainnhe/sonokai"
-    },
-    "thorn.nvim": {
-      "rev": "d3e6e7ef07bb09a9197e14bc54662a66e88d0c83",
-      "src": "https://github.com/jpwol/thorn.nvim"
-    },
-    "witch": {
-      "rev": "b943dd5397b7fd0216d7143f16a3a202ff64b5d3",
-      "src": "https://github.com/sontungexpt/witch"
-    },
-    "zephyr-nvim": {
-      "rev": "7fd86b7164442d3b5ec2c81b2694d040e716b5cf",
-      "src": "https://github.com/nvimdev/zephyr-nvim"
     }
   }
 }

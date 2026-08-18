@@ -29,7 +29,8 @@ end
 
 ---@type table<moepconf.plugin_name, myspec>
 local plugins = {
-  ['flash.nvim'] = { src = 'https://github.com/folke/flash.nvim' },
+  -- ['flash.nvim'] = { src = 'https://github.com/folke/flash.nvim' },
+  ['flash.nvim'] = { src = 'https://github.com/pedro757/flash.nvim', version = 'fix/neovim-0.13-search-state' },
   ['mini.icons'] = { src = 'https://github.com/nvim-mini/mini.icons' },
   ['mini.nvim'] = { src = 'https://github.com/echasnovski/mini.nvim', data = { setup = require('config.plugins.mini').setup } } ,
   ['nvim-treesitter'] = { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
