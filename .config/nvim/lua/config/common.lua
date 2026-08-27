@@ -101,3 +101,20 @@ vim.api.nvim_create_user_command('Scratch', function()
   vim.api.nvim_set_option_value('swapfile', false, { buf = buf })
   vim.api.nvim_set_option_value('fileencoding', 'utf-8', { buf = buf })
 end, {})
+
+-- TODO for notes only
+vim.api.nvim_create_user_command("CreateMarkdownLinkFile", function()
+  local line = vim.api.nvim_get_current_line()
+  local path = line:match("%b[]%(([^)#]+)")
+  if not path or path:match("^[%w]+://") then
+    vim.notify("No local Markdown link found", vim.log.levels.WARN)
+    return
+  end
+
+  local source = vim.api.nvim_buf_get_name(0)
+  local dir = vim.fs.dirname(source)
+  local target = vim.fs.normalize(vim.fs.joinpath(dir, path))
+
+  vim.fn.mkdir(vim.fs.dirname(target), "p")
+  vim.cmd.edit(vim.fn.fnameescape(target))
+end, {})

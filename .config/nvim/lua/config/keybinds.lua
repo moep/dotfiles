@@ -45,5 +45,5 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'S', function() require('flash').treesitter() 
 
 -- markview --------------------------------------------------------------------
 if vim.env.NVIM_MODE == 'notes' then
-  vim.keymap.set('n', '<leader>m', function() require('render-markdown').buf_toggle() end)
+  vim.keymap.set('n', '<leader>mm', function() require('render-markdown').buf_toggle() end)
 end

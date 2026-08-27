@@ -34,7 +34,7 @@ function M.setup()
     },
 
     checkbox = {
-      checked = { scope_highlight = '@markup.strikethrough' },
+      --checked = { scope_highlight = '@markup.strikethrough' },
       custom = {
         moep = { raw = '[m]', rendered = 'xx ', left_pad = 2 },
       },

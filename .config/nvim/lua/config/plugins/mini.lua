@@ -13,6 +13,7 @@ function M.setup()
     require('mini.completion').setup({})
     -- require('mini.pairs').setup({})
     require('mini.pick').setup({})
+    require('mini.snippets').setup({})
     -- require('mini.surround').setup({})
   end
 end
