@@ -12,6 +12,8 @@
 !/.config/fuzzel/**
 !/.config/git/
 !/.config/git/**
+!/.config/glow/
+!/.config/glow/**
 !/.config/htop/
 !/.config/htop/**
 !/.config/hypr/
